@@ -1,0 +1,3111 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA NOIR — Дом Высокой Парфюмерии</title>
+    <!-- Google Fonts (Cyrillic, Latin & Arabic Amiri/Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #080706;
+        --bg-elevated: #12100e;
+        --bg-card: #161411;
+        --bg-glass: rgba(18, 16, 14, 0.85);
+        --gold: #d4af37;
+        --gold-light: #f3e5ab;
+        --gold-muted: #9e823c;
+        --amber: #c88a4b;
+        --text: #f7f4ef;
+        --text-muted: #a69f94;
+        --border: rgba(212, 175, 55, 0.18);
+        --border-hover: rgba(212, 175, 55, 0.5);
+        --font-serif: 'Cormorant Garamond', 'Amiri', Georgia, serif;
+        --font-sans: 'Montserrat', 'Cairo', sans-serif;
+        --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      html[lang="ar"] {
+        --font-serif: 'Amiri', serif;
+        --font-sans: 'Cairo', sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image:
+          radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.08), transparent 35%),
+          radial-gradient(circle at 85% 30%, rgba(200, 138, 75, 0.06), transparent 35%),
+          radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.05), transparent 40%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+      }
+
+      input, select, textarea {
+        font-family: inherit;
+      }
+
+      .container {
+        width: min(1260px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* TOP PROMO BAR */
+      .promo-bar {
+        background: linear-gradient(90deg, #1b160d, #2b2212, #1b160d);
+        border-bottom: 1px solid var(--border);
+        color: var(--gold-light);
+        font-size: 12px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 9px 16px;
+        font-weight: 500;
+      }
+
+      html[lang="ar"] .promo-bar {
+        letter-spacing: 0;
+        font-size: 13px;
+      }
+
+      /* HEADER */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg-glass);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .logo-sub {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      html[lang="ar"] .logo-sub {
+        letter-spacing: 0;
+        font-size: 11px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-weight: 500;
+        color: var(--text-muted);
+      }
+
+      html[lang="ar"] .nav-links {
+        letter-spacing: 0;
+        font-size: 15px;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding: 6px 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        inset-inline-start: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-light);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* LANGUAGE SWITCHER */
+      .lang-switcher {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 3px;
+        gap: 2px;
+      }
+
+      .lang-btn {
+        padding: 6px 11px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+        transition: var(--transition);
+      }
+
+      .lang-btn:hover {
+        color: var(--text);
+      }
+
+      .lang-btn.active {
+        background: var(--gold);
+        color: #080706;
+        box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+      }
+
+      .icon-btn {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        font-size: 15px;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .icon-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      .badge {
+        position: absolute;
+        top: -4px;
+        inset-inline-end: -4px;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 5px;
+        border-radius: 999px;
+        background: var(--gold);
+        color: #080706;
+        font-size: 11px;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        padding: 85px 0 95px;
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 16px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--gold-light);
+        font-size: 11px;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        background: rgba(212, 175, 55, 0.06);
+      }
+
+      html[lang="ar"] .hero-eyebrow {
+        letter-spacing: 0;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(42px, 5.8vw, 74px);
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+
+      .hero-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        max-width: 550px;
+        margin-bottom: 36px;
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      .hero-buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        transition: var(--transition);
+      }
+
+      html[lang="ar"] .btn {
+        letter-spacing: 0;
+        font-size: 14px;
+      }
+
+      .btn-gold {
+        background: linear-gradient(135deg, #d4af37, #b38728);
+        color: #080706;
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+      }
+
+      .btn-gold:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        filter: brightness(1.08);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--border-hover);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+        transform: translateY(-3px);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-top: 28px;
+        border-top: 1px solid var(--border);
+        max-width: 520px;
+      }
+
+      .stat-num {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-top: 6px;
+      }
+
+      html[lang="ar"] .stat-label {
+        letter-spacing: 0;
+        font-size: 12px;
+      }
+
+      .hero-Showcase {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image-frame {
+        position: relative;
+        width: 100%;
+        max-width: 440px;
+        height: 540px;
+        border-radius: 220px 220px 16px 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-hover);
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(212, 175, 55, 0.15);
+      }
+
+      .hero-image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+      }
+
+      .hero-image-frame:hover img {
+        transform: scale(1.05);
+      }
+
+      .floating-badge {
+        position: absolute;
+        bottom: 30px;
+        inset-inline-start: -10px;
+        background: rgba(18, 16, 14, 0.92);
+        border: 1px solid var(--border-hover);
+        padding: 16px 22px;
+        border-radius: 8px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      }
+
+      .floating-badge span {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .floating-badge strong {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      /* SECTION STYLING */
+      .section {
+        padding: 85px 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 44px;
+        flex-wrap: wrap;
+      }
+
+      .section-subtitle {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--gold);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      html[lang="ar"] .section-subtitle {
+        letter-spacing: 0;
+        font-size: 13px;
+      }
+
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(32px, 4.5vw, 48px);
+        font-weight: 500;
+        line-height: 1.15;
+      }
+
+      /* CATALOG CONTROLS */
+      .catalog-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+        background: var(--bg-elevated);
+        padding: 18px 24px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .filter-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 9px 18px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text-muted);
+        font-size: 12px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        transition: var(--transition);
+      }
+
+      html[lang="ar"] .filter-btn {
+        letter-spacing: 0;
+        font-size: 14px;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--gold);
+        color: var(--text);
+      }
+
+      .filter-btn.active {
+        background: var(--gold);
+        color: #080706;
+        border-color: var(--gold);
+        font-weight: 600;
+      }
+
+      .search-sort-group {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .search-wrapper {
+        position: relative;
+        width: 270px;
+      }
+
+      .search-wrapper input {
+        width: 100%;
+        height: 40px;
+        padding-inline-start: 38px;
+        padding-inline-end: 14px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text);
+        font-size: 13px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .search-wrapper input:focus {
+        border-color: var(--gold);
+      }
+
+      .search-wrapper i {
+        position: absolute;
+        inset-inline-start: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .sort-select {
+        height: 40px;
+        padding: 0 14px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text);
+        font-size: 13px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* PRODUCT GRID */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .product-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--border-hover);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.1);
+      }
+
+      .product-img-wrap {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+        background: #0d0b09;
+        cursor: pointer;
+      }
+
+      .product-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .product-card:hover .product-img-wrap img {
+        transform: scale(1.07);
+      }
+
+      .product-badges {
+        position: absolute;
+        top: 14px;
+        inset-inline-start: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 2;
+      }
+
+      .tag-badge {
+        padding: 5px 10px;
+        background: rgba(8, 7, 6, 0.85);
+        border: 1px solid var(--gold);
+        color: var(--gold-light);
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 600;
+        backdrop-filter: blur(6px);
+      }
+
+      .fav-btn {
+        position: absolute;
+        top: 14px;
+        inset-inline-end: 14px;
+        z-index: 2;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(8, 7, 6, 0.75);
+        border: 1px solid var(--border);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        transition: var(--transition);
+        backdrop-filter: blur(6px);
+      }
+
+      .fav-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      .fav-btn.active {
+        color: #e74c3c;
+        border-color: #e74c3c;
+      }
+
+      .product-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .product-brand {
+        font-size: 11px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+
+      .product-title {
+        font-family: var(--font-serif);
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .product-title:hover {
+        color: var(--gold-light);
+      }
+
+      .product-notes-preview {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 18px;
+        display: -webkit-box;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .product-footer {
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .product-price {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .product-price span {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 10px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .product-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn-icon-only {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        transition: var(--transition);
+      }
+
+      .btn-icon-only:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      .btn-buy {
+        height: 42px;
+        padding: 0 16px;
+        background: var(--gold);
+        color: #080706;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+      }
+
+      .btn-buy:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+
+      /* SCENT FAMILIES SECTION */
+      .families-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .family-card {
+        position: relative;
+        height: 260px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        isolation: isolate;
+        transition: var(--transition);
+      }
+
+      .family-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-5px);
+      }
+
+      .family-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 7, 6, 0.95), rgba(8, 7, 6, 0.25)), var(--bg-img);
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        transition: transform 0.6s ease;
+      }
+
+      .family-card:hover::before {
+        transform: scale(1.08);
+      }
+
+      .family-card h3 {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        color: var(--gold-light);
+        margin-bottom: 4px;
+      }
+
+      .family-card p {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      /* SCENT QUIZ BANNER */
+      .quiz-banner {
+        background: linear-gradient(135deg, #17130d, #0f0d0a);
+        border: 1px solid var(--border-hover);
+        border-radius: 12px;
+        padding: 56px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quiz-banner h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(30px, 4vw, 44px);
+        margin-bottom: 16px;
+      }
+
+      .quiz-banner p {
+        color: var(--text-muted);
+        margin-bottom: 28px;
+        max-width: 540px;
+      }
+
+      /* JOURNAL / ARTICLES */
+      .journal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .journal-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .journal-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-6px);
+      }
+
+      .journal-img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .journal-body {
+        padding: 24px;
+      }
+
+      .journal-tag {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .journal-card h3 {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        margin-bottom: 10px;
+        line-height: 1.25;
+      }
+
+      .journal-card p {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .journal-link {
+        font-size: 12px;
+        color: var(--gold-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: #050403;
+        border-top: 1px solid var(--border);
+        padding: 70px 0 35px;
+        margin-top: 60px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer h4 {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      .footer-links a:hover {
+        color: var(--gold-light);
+      }
+
+      .newsletter-mini {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .newsletter-mini input {
+        flex: 1;
+        height: 42px;
+        padding: 0 14px;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text);
+        outline: none;
+      }
+
+      .footer-bottom {
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      /* MODALS & DRAWERS */
+      .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 3, 2, 0.85);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-window {
+        position: relative;
+        width: min(920px, 100%);
+        max-height: 90vh;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border-hover);
+        border-radius: 10px;
+        overflow-y: auto;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+        transform: translateY(20px) scale(0.96);
+        transition: var(--transition);
+      }
+
+      .backdrop.active .modal-window {
+        transform: translateY(0) scale(1);
+      }
+
+      .modal-close-btn {
+        position: absolute;
+        top: 18px;
+        inset-inline-end: 18px;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(8, 7, 6, 0.8);
+        border: 1px solid var(--border);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        transition: var(--transition);
+      }
+
+      .modal-close-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: rotate(90deg);
+      }
+
+      /* PRODUCT DETAIL MODAL */
+      .product-modal-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      .product-modal-img {
+        width: 100%;
+        height: 100%;
+        min-height: 460px;
+        object-fit: cover;
+      }
+
+      .product-modal-info {
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* OLFACTORY PYRAMID */
+      .pyramid-box {
+        margin: 22px 0;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+
+      .pyramid-title {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .pyramid-tier {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+        font-size: 13px;
+      }
+
+      .pyramid-tier:last-child {
+        border-bottom: none;
+      }
+
+      .tier-label {
+        min-width: 125px;
+        font-weight: 600;
+        color: var(--gold-light);
+        font-size: 12px;
+      }
+
+      .tier-notes {
+        color: var(--text-muted);
+      }
+
+      /* VOLUME SELECTOR */
+      .volume-selector {
+        display: flex;
+        gap: 10px;
+        margin: 16px 0 24px;
+      }
+
+      .vol-btn {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text-muted);
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .vol-btn.active {
+        border-color: var(--gold);
+        background: rgba(212, 175, 55, 0.15);
+        color: var(--gold-light);
+      }
+
+      /* SIDE DRAWER (CART & FAVORITES) */
+      .drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 3, 2, 0.8);
+        backdrop-filter: blur(8px);
+        z-index: 1100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .drawer {
+        position: fixed;
+        top: 0;
+        inset-inline-end: 0;
+        width: min(440px, 100%);
+        height: 100vh;
+        background: var(--bg-elevated);
+        border-inline-start: 1px solid var(--border-hover);
+        z-index: 1101;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      html[dir="rtl"] .drawer {
+        transform: translateX(-100%);
+      }
+
+      .drawer-backdrop.active .drawer {
+        transform: translateX(0);
+      }
+
+      .drawer-header {
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .drawer-header h3 {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        color: var(--gold);
+      }
+
+      .drawer-body {
+        padding: 24px;
+        overflow-y: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cart-item {
+        display: flex;
+        gap: 14px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .cart-item img {
+        width: 72px;
+        height: 86px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+      }
+
+      .cart-item-info {
+        flex: 1;
+      }
+
+      .cart-item-title {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        font-weight: 600;
+      }
+
+      .cart-item-meta {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .qty-controls {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+      }
+
+      .qty-btn {
+        width: 26px;
+        height: 26px;
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .qty-val {
+        padding: 0 10px;
+        font-size: 12px;
+      }
+
+      .drawer-footer {
+        padding: 24px;
+        border-top: 1px solid var(--border);
+        background: #0d0b09;
+      }
+
+      .cart-total-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+
+      .cart-total-row strong {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        color: var(--gold);
+      }
+
+      /* TOAST */
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        inset-inline-end: 28px;
+        z-index: 2000;
+        background: #171410;
+        border: 1px solid var(--gold);
+        color: var(--text);
+        padding: 15px 22px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        transform: translateY(100px);
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .toast.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .toast i {
+        color: var(--gold);
+        font-size: 18px;
+      }
+
+      /* QUIZ OPTIONS */
+      .quiz-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin: 22px 0;
+      }
+
+      .quiz-option-btn {
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        text-align: start;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+        transition: var(--transition);
+      }
+
+      .quiz-option-btn:hover {
+        border-color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      .quiz-option-btn strong {
+        display: block;
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--gold-light);
+        margin-bottom: 4px;
+      }
+
+      .quiz-option-btn span {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 992px) {
+        .hero-grid,
+        .quiz-banner,
+        .product-modal-grid {
+          grid-template-columns: 1fr;
+        }
+        .products-grid,
+        .journal-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .families-grid,
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-image-frame {
+          height: 420px;
+        }
+        .nav-links {
+          position: absolute;
+          top: 82px;
+          left: 20px;
+          right: 20px;
+          background: #12100e;
+          border: 1px solid var(--border-hover);
+          padding: 24px;
+          flex-direction: column;
+          display: none;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: grid;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .products-grid,
+        .families-grid,
+        .journal-grid,
+        .footer-grid,
+        .quiz-options {
+          grid-template-columns: 1fr;
+        }
+        .quiz-banner {
+          padding: 32px 22px;
+        }
+        .logo-title {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- PROMO BAR -->
+    <div class="promo-bar" id="promoBarText"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container nav">
+        <a href="#" class="logo">
+          <span class="logo-title">AURA NOIR</span>
+          <span class="logo-sub" id="logoSub">Maison de Parfum • Paris</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#catalog" id="navCatalog"></a>
+          <a href="#families" id="navFamilies"></a>
+          <a href="#quizSection" id="navQuiz"></a>
+          <a href="#journal" id="navJournal"></a>
+          <a href="#" id="aboutBrandBtn"></a>
+        </nav>
+
+        <div class="nav-actions">
+          <!-- LANGUAGE SWITCHER: RU / EN / AR -->
+          <div class="lang-switcher" aria-label="Language Switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">عربي</button>
+          </div>
+
+          <button class="icon-btn" id="openFavDrawerBtn" title="Favorites">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge" id="favCountBadge">0</span>
+          </button>
+
+          <button class="icon-btn" id="openCartDrawerBtn" title="Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge" id="cartCountBadge">0</span>
+          </button>
+
+          <button class="icon-btn menu-toggle" id="menuToggleBtn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <i class="fa-solid fa-sparkles"></i>
+              <span id="heroEyebrow"></span>
+            </div>
+
+            <h1 id="heroTitle"></h1>
+
+            <p class="hero-desc" id="heroDesc"></p>
+
+            <div class="hero-buttons">
+              <a href="#catalog" class="btn btn-gold" id="heroBtnCatalog"></a>
+              <button class="btn btn-outline" id="startQuizHeroBtn"></button>
+              <a href="promo-video.html" class="btn btn-outline" id="heroBtnPromoVideo" style="border-color: var(--gold); color: var(--gold-light);">
+                <i class="fa-solid fa-play"></i> Видео-обзор
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <div class="stat-num">28%</div>
+                <div class="stat-label" id="statLabel1"></div>
+              </div>
+              <div>
+                <div class="stat-num" id="statVal2">48 h</div>
+                <div class="stat-label" id="statLabel2"></div>
+              </div>
+              <div>
+                <div class="stat-num">100%</div>
+                <div class="stat-label" id="statLabel3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-Showcase">
+            <div class="hero-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
+                alt="Aura Noir Perfume"
+              />
+            </div>
+            <div class="floating-badge">
+              <span id="heroBadgeSub"></span>
+              <strong>Oud Mystique № 07</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OLFACTORY FAMILIES -->
+      <section class="section" id="families">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-subtitle" id="familiesSub"></span>
+              <h2 class="section-title" id="familiesTitle"></h2>
+            </div>
+            <p style="color: var(--text-muted); max-width: 420px; font-size: 14px;" id="familiesHint"></p>
+          </div>
+
+          <div class="families-grid" id="familiesGrid">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CATALOG SECTION -->
+      <section class="section" id="catalog">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-subtitle" id="catalogSub"></span>
+              <h2 class="section-title" id="catalogTitle"></h2>
+            </div>
+          </div>
+
+          <!-- FILTERS & SEARCH -->
+          <div class="catalog-controls">
+            <div class="filter-group" id="categoryFilters">
+              <!-- Populated via JS -->
+            </div>
+
+            <div class="search-sort-group">
+              <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchPerfumeInput" placeholder="" />
+              </div>
+
+              <select class="sort-select" id="sortSelect">
+                <option value="popular" id="sortOptPopular"></option>
+                <option value="price-asc" id="sortOptAsc"></option>
+                <option value="price-desc" id="sortOptDesc"></option>
+              </select>
+            </div>
+          </div>
+
+          <!-- PRODUCTS CONTAINER -->
+          <div class="products-grid" id="productsContainer">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE SCENT QUIZ SECTION -->
+      <section class="section" id="quizSection">
+        <div class="container">
+          <div class="quiz-banner">
+            <div>
+              <span class="section-subtitle" id="quizSub"></span>
+              <h2 id="quizBannerTitle"></h2>
+              <p id="quizBannerDesc"></p>
+              <button class="btn btn-gold" id="openQuizModalBtn"></button>
+            </div>
+            <div style="text-align: center;">
+              <img
+                src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80"
+                alt="Perfume Sommelier"
+                style="width: 100%; max-width: 340px; border-radius: 8px; border: 1px solid var(--border-hover);"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNAL / ARTICLES SECTION -->
+      <section class="section" id="journal">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-subtitle" id="journalSub"></span>
+              <h2 class="section-title" id="journalTitle"></h2>
+            </div>
+          </div>
+
+          <div class="journal-grid" id="journalContainer">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="logo" style="margin-bottom: 16px;">
+              <span class="logo-title">AURA NOIR</span>
+              <span class="logo-sub" id="footerLogoSub">Maison de Parfum • Paris</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); max-width: 300px;" id="footerAboutText"></p>
+          </div>
+
+          <div>
+            <h4 id="footerNavHeading"></h4>
+            <ul class="footer-links">
+              <li><a href="#catalog" id="fLinkCatalog"></a></li>
+              <li><a href="#families" id="fLinkFamilies"></a></li>
+              <li><a href="#quizSection" id="fLinkQuiz"></a></li>
+              <li><a href="#journal" id="fLinkJournal"></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 id="footerClientHeading"></h4>
+            <ul class="footer-links">
+              <li><a href="#" id="deliveryInfoBtn"></a></li>
+              <li><a href="#" id="sampleSetBtn"></a></li>
+              <li><a href="#" id="contactsModalBtn"></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 id="footerClubHeading"></h4>
+            <p style="font-size: 13px; color: var(--text-muted);" id="footerClubDesc"></p>
+            <form class="newsletter-mini" id="newsletterForm">
+              <input type="email" id="newsletterInput" placeholder="Email..." required />
+              <button type="submit" class="btn btn-gold" style="height: 42px; padding: 0 18px;">
+                OK
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span id="footerCopyright"></span>
+          <span id="footerAddresses"></span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 1. PRODUCT PYRAMID & DETAILS MODAL -->
+    <div class="backdrop" id="productModalBackdrop">
+      <div class="modal-window">
+        <button class="modal-close-btn" id="closeProductModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="product-modal-grid" id="productModalContent"></div>
+      </div>
+    </div>
+
+    <!-- 2. ARTICLE / INFO MODAL -->
+    <div class="backdrop" id="articleModalBackdrop">
+      <div class="modal-window" style="max-width: 760px;">
+        <button class="modal-close-btn" id="closeArticleModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="articleModalContent"></div>
+      </div>
+    </div>
+
+    <!-- 3. SCENT QUIZ MODAL -->
+    <div class="backdrop" id="quizModalBackdrop">
+      <div class="modal-window" style="max-width: 680px; padding: 40px;">
+        <button class="modal-close-btn" id="closeQuizModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="quizModalBody"></div>
+      </div>
+    </div>
+
+    <!-- 4. CART & FAVORITES DRAWER -->
+    <div class="drawer-backdrop" id="drawerBackdrop">
+      <div class="drawer">
+        <div class="drawer-header">
+          <h3 id="drawerTitle"></h3>
+          <button class="icon-btn" id="closeDrawerBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="drawer-body" id="drawerBody"></div>
+        <div class="drawer-footer" id="drawerFooter"></div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+      <i class="fa-solid fa-check-circle"></i>
+      <span id="toastText"></span>
+    </div>
+
+    <!-- JAVASCRIPT MULTILINGUAL LOGIC -->
+    <script>
+      // CURRENT LANGUAGE STATE ('ru' | 'en' | 'ar')
+      const SUPPORTED_LANGS = ["ru", "en", "ar"];
+      let savedLang = localStorage.getItem("aura_lang");
+      let currentLang = SUPPORTED_LANGS.includes(savedLang) ? savedLang : "ru";
+
+      // UI TRANSLATIONS DICTIONARY
+      const I18N = {
+        ru: {
+          dir: "ltr",
+          title: "AURA NOIR — Дом Высокой Парфюмерии",
+          promoBar: "✦ Бесплатная доставка и набор из 3-х сэмплов к каждому заказу от 15 000 ₽ ✦",
+          logoSub: "Дом Парфюмерии • Париж",
+          navCatalog: "Коллекция",
+          navFamilies: "Семейства нот",
+          navQuiz: "Подбор аромата",
+          navJournal: "Журнал",
+          navAbout: "О Доме",
+          heroEyebrow: "Эксклюзивная нишевая коллекция 2026",
+          heroTitle: "Искусство <em>невидимой</em> роскоши на вашей коже",
+          heroDesc: "Парфюмерный дом <strong>AURA NOIR</strong> создаёт редкие композиции из натуральных абсолютов Грасса, дикого уда, амбры и редких специй. Каждый флакон — история, рассказанная без слов.",
+          heroBtnCatalog: 'Смотреть коллекцию <i class="fa-solid fa-arrow-right"></i>',
+          heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Подобрать свой аромат',
+          heroBtnVideo: '<i class="fa-solid fa-play"></i> Видео-инструкция',
+          statLabel1: "Концентрация масел Extrait",
+          statVal2: "48 ч",
+          statLabel2: "Стойкость шлейфа",
+          statLabel3: "Ручной розлив в Грассе",
+          heroBadgeSub: "Аромат сезона",
+          familiesSub: "Ольфакторная палитра",
+          familiesTitle: "Выберите настроение",
+          familiesHint: "Нажмите на семейство ароматов, чтобы отфильтровать парфюмерные композиции в нашем каталоге.",
+          catalogSub: "Бутик",
+          catalogTitle: "Парфюмерная коллекция",
+          filterAll: "Все ароматы",
+          searchPlaceholder: "Поиск по названию или ноте (уд, роза)...",
+          sortPopular: "По популярности",
+          sortAsc: "Сначала дешевле",
+          sortDesc: "Сначала дороже",
+          notesLabel: "Ноты:",
+          per50ml: "за 50 мл",
+          addToCartBtn: "В корзину",
+          noProductsTitle: "Ароматы не найдены",
+          noProductsDesc: "Попробуйте сбросить фильтры или ввести другую ноту.",
+          quizSub: "Персональный сомелье",
+          quizBannerTitle: "Не знаете, какой парфюм выбрать?",
+          quizBannerDesc: "Ответьте на 2 вопроса о ваших предпочтениях и атмосфере, и наш алгоритм подберёт идеальный нишевый аромат из коллекции AURA NOIR.",
+          openQuizBtn: '<i class="fa-solid fa-compass"></i> Запустить тест подбора',
+          journalSub: "Парфюмерный журнал",
+          journalTitle: "Секреты высокой парфюмерии",
+          readArticle: "Читать статью",
+          footerAboutText: "Авторская селективная парфюмерия, созданная на стыке вековых традиций Франции и мистического Востока.",
+          footerNavHeading: "Навигация",
+          footerClientHeading: "Покупателям",
+          deliveryLink: "Доставка и оплата",
+          sampleSetLink: "Заказать Discovery Set",
+          contactsLink: "Бутики и контакты",
+          footerClubHeading: "Закрытый клуб",
+          footerClubDesc: "Подпишитесь, чтобы получать приглашения на закрытые презентации и скидку 10% на первый заказ.",
+          newsletterPlaceholder: "Ваш Email...",
+          footerCopyright: "© 2026 AURA NOIR Parfums. Все права защищены.",
+          footerAddresses: "Москва, ул. Малая Бронная, 24 • Париж • Дубай",
+          // Modal & Drawer strings
+          pyramidTitle: "Ольфакторная пирамида аромата",
+          topNotesLabel: "▲ Верхние ноты:",
+          heartNotesLabel: "◆ Ноты сердца:",
+          baseNotesLabel: "▼ Базовые ноты:",
+          longevityLabel: "Стойкость:",
+          sillageLabel: "Шлейф:",
+          chooseVolume: "Выберите объём флакона:",
+          vol10: "10 мл (Сэмпл)",
+          vol50: "50 мл",
+          vol100: "100 мл",
+          priceLabel: "Стоимость:",
+          cartTitle: "Ваша корзина",
+          cartEmpty: "Ваша корзина пока пуста.",
+          totalLabel: "Итого к оплате:",
+          checkoutBtn: "Оформить заказ",
+          favTitle: "Избранные ароматы",
+          favEmpty: "Добавляйте понравившиеся композиции, нажимая на сердечко.",
+          toastAddedCart: "добавлен в корзину",
+          toastAddedFav: "сохранён в избранное",
+          toastRemovedFav: "удалён из избранного",
+          toastOrderSuccess: "Заказ успешно оформлен! Наш консьерж свяжется с вами.",
+          toastSubscribed: "Добро пожаловать в закрытый клуб AURA NOIR!",
+          toastFamilyFilter: "Выбрано семейство:",
+          quizResultSub: "Ваш идеальный выбор",
+          quizResultPrefix: "Мы подобрали для вас:",
+          quizRestart: "Пройти заново"
+        },
+
+        en: {
+          dir: "ltr",
+          title: "AURA NOIR — Maison de Haute Parfumerie",
+          promoBar: "✦ Complimentary shipping & 3 luxury samples with every order over $160 ✦",
+          logoSub: "Maison de Parfum • Paris",
+          navCatalog: "Collection",
+          navFamilies: "Olfactory Families",
+          navQuiz: "Scent Finder",
+          navJournal: "Journal",
+          navAbout: "The Maison",
+          heroEyebrow: "Exclusive Niche Collection 2026",
+          heroTitle: "The Art of <em>Invisible</em> Luxury on Your Skin",
+          heroDesc: "Perfume House <strong>AURA NOIR</strong> crafts rare compositions from natural Grasse absolutes, wild oud, amber, and precious spices. Every flacon is a story told without words.",
+          heroBtnCatalog: 'Explore Collection <i class="fa-solid fa-arrow-right"></i>',
+          heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Find Your Signature Scent',
+          heroBtnVideo: '<i class="fa-solid fa-play"></i> Watch Video Guide',
+          statLabel1: "Extrait Oil Concentration",
+          statVal2: "48 h",
+          statLabel2: "Sillage & Longevity",
+          statLabel3: "Hand-poured in Grasse",
+          heroBadgeSub: "Scent of the Season",
+          familiesSub: "Olfactory Palette",
+          familiesTitle: "Discover by Mood",
+          familiesHint: "Select a fragrance family below to filter creations in our boutique catalog.",
+          catalogSub: "Boutique",
+          catalogTitle: "Parfum Collection",
+          filterAll: "All Fragrances",
+          searchPlaceholder: "Search by name or note (oud, rose)...",
+          sortPopular: "Most Popular",
+          sortAsc: "Price: Low to High",
+          sortDesc: "Price: High to Low",
+          notesLabel: "Notes:",
+          per50ml: "per 50 ml",
+          addToCartBtn: "Add to Bag",
+          noProductsTitle: "No fragrances found",
+          noProductsDesc: "Try resetting filters or searching for another ingredient.",
+          quizSub: "Personal Sommelier",
+          quizBannerTitle: "Unsure Which Creation Suits You?",
+          quizBannerDesc: "Answer 2 brief questions about your mood and occasion, and our algorithm will curate your ideal niche fragrance from AURA NOIR.",
+          openQuizBtn: '<i class="fa-solid fa-compass"></i> Start Scent Quiz',
+          journalSub: "Perfume Journal",
+          journalTitle: "Secrets of Haute Parfumerie",
+          readArticle: "Read Article",
+          footerAboutText: "Artisanal niche perfumery born at the crossroads of French heritage and the mystical Orient.",
+          footerNavHeading: "Navigation",
+          footerClientHeading: "Client Care",
+          deliveryLink: "Shipping & Concierge",
+          sampleSetLink: "Order Discovery Set",
+          contactsLink: "Boutiques & Contacts",
+          footerClubHeading: "Private Club",
+          footerClubDesc: "Subscribe to receive invitations to private launches and 10% off your first creation.",
+          newsletterPlaceholder: "Your Email...",
+          footerCopyright: "© 2026 AURA NOIR Parfums. All rights reserved.",
+          footerAddresses: "Paris, Rue Saint-Honoré • Dubai Mall • Moscow",
+          // Modal & Drawer strings
+          pyramidTitle: "Olfactory Pyramid",
+          topNotesLabel: "▲ Top Notes:",
+          heartNotesLabel: "◆ Heart Notes:",
+          baseNotesLabel: "▼ Base Notes:",
+          longevityLabel: "Longevity:",
+          sillageLabel: "Sillage:",
+          chooseVolume: "Select Flacon Volume:",
+          vol10: "10 ml (Travel)",
+          vol50: "50 ml",
+          vol100: "100 ml",
+          priceLabel: "Price:",
+          cartTitle: "Your Shopping Bag",
+          cartEmpty: "Your shopping bag is currently empty.",
+          totalLabel: "Total:",
+          checkoutBtn: "Proceed to Checkout",
+          favTitle: "Saved Creations",
+          favEmpty: "Save your favorite perfumes by clicking the heart icon.",
+          toastAddedCart: "added to your bag",
+          toastAddedFav: "saved to favorites",
+          toastRemovedFav: "removed from favorites",
+          toastOrderSuccess: "Order placed! Our concierge will contact you shortly.",
+          toastSubscribed: "Welcome to the AURA NOIR Private Club!",
+          toastFamilyFilter: "Filtered by family:",
+          quizResultSub: "Your Signature Match",
+          quizResultPrefix: "Curated for you:",
+          quizRestart: "Retake Quiz"
+        },
+
+        ar: {
+          dir: "rtl",
+          title: "أورا نوار — دار العطور الفاخرة | AURA NOIR",
+          promoBar: "✦ شحن مجاني ومجموعة من ٣ عينات فاخرة مع كل طلب ✦",
+          logoSub: "دار العطور الراقية • باريس",
+          navCatalog: "المجموعة",
+          navFamilies: "العائلات العطرية",
+          navQuiz: "مستشار العطور",
+          navJournal: "المجلة",
+          navAbout: "عن الدار",
+          heroEyebrow: "مجموعة العطور النيش الحصرية ٢٠٢٦",
+          heroTitle: "فن الفخامة <em>الخفية</em> على بشرتك",
+          heroDesc: "تبتكر دار <strong>AURA NOIR</strong> تركيبات نادرة من خلاصات غراس الطبيعية، والعود الكمبودي الفاخر، والعنبر والتوابل الثمينة. كل زجاجة تروي حكاية ساحرة بلا كلمات.",
+          heroBtnCatalog: 'استكشف المجموعة <i class="fa-solid fa-arrow-left"></i>',
+          heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> اكتشف عطرك المثالي',
+          heroBtnVideo: '<i class="fa-solid fa-play"></i> فيديو طريقة الطلب',
+          statLabel1: "تركيز الزيوت العطرية النقية",
+          statVal2: "٤٨ ساعة",
+          statLabel2: "ثبات وفوحان استثنائي",
+          statLabel3: "تعبئة يدوية في غراس",
+          heroBadgeSub: "عطر الموسم",
+          familiesSub: "لوحة النفحات العطرية",
+          familiesTitle: "اختر حسب مزاجك",
+          familiesHint: "اضغط على العائلة العطرية لتصفية العطور في المتجر.",
+          catalogSub: "البوتيك",
+          catalogTitle: "مجموعة العطور الفاخرة",
+          filterAll: "جميع العطور",
+          searchPlaceholder: "ابحث بالاسم أو المكونات (عود، ورد، عنبر)...",
+          sortPopular: "الأكثر رواجاً",
+          sortAsc: "السعر: من الأقل للأعلى",
+          sortDesc: "السعر: من الأعلى للأقل",
+          notesLabel: "المكونات:",
+          per50ml: "لحجم ٥٠ مل",
+          addToCartBtn: "أضف للسلة",
+          noProductsTitle: "لم يتم العثور على عطور",
+          noProductsDesc: "جرّب إعادة ضبط الفلاتر أو البحث عن نوتة عطرية أخرى.",
+          quizSub: "خبير العطور الشخصي",
+          quizBannerTitle: "هل تحتار في اختيار العطر المناسب لك؟",
+          quizBannerDesc: "أجب عن سؤالين حول ذوقك والمناسبة، وسيقوم خبيرنا الرقمي باختيار العطر الأمثل لشخصيتك من مجموعة أورا نوار.",
+          openQuizBtn: '<i class="fa-solid fa-compass"></i> ابدأ اختبار العطور',
+          journalSub: "مجلة العطور",
+          journalTitle: "أسرار صناعة العطور الراقية",
+          readArticle: "اقرأ المقال",
+          footerAboutText: "عطور نيش حصرية تمزج بين التراث الفرنسي العريق وسحر الشرق الأصيل.",
+          footerNavHeading: "روابط سريعة",
+          footerClientHeading: "خدمة العملاء",
+          deliveryLink: "الشحن والتوصيل الفاخر",
+          sampleSetLink: "اطلب مجموعة العينات",
+          contactsLink: "الفروع والتواصل",
+          footerClubHeading: "النادي الخاص",
+          footerClubDesc: "اشترك للحصول على دعوات للإصدارات الحصرية وخصم ١٠٪ على طلبك الأول.",
+          newsletterPlaceholder: "بريدك الإلكتروني...",
+          footerCopyright: "© ٢٠٢٦ أورا نوار للعطور. جميع الحقوق محفوظة.",
+          footerAddresses: "دبي مول • الرياض • باريس • موسكو",
+          // Modal & Drawer strings
+          pyramidTitle: "الهرم العطري ومكونات العطر",
+          topNotesLabel: "▲ مقدمة العطر:",
+          heartNotesLabel: "◆ قلب العطر:",
+          baseNotesLabel: "▼ قاعدة العطر:",
+          longevityLabel: "الثبات:",
+          sillageLabel: "الفوحان:",
+          chooseVolume: "اختر حجم الزجاجة:",
+          vol10: "١٠ مل (عينة سفر)",
+          vol50: "٥٠ مل",
+          vol100: "١٠٠ مل",
+          priceLabel: "السعر:",
+          cartTitle: "حقيبة التسوق",
+          cartEmpty: "حقيبة التسوق فارغة حالياً.",
+          totalLabel: "الإجمالي:",
+          checkoutBtn: "إتمام الطلب الآن",
+          favTitle: "العطور المفضلة",
+          favEmpty: "أضف عطورك المفضلة بالضغط على رمز القلب.",
+          toastAddedCart: "تمت إضافته إلى السلة",
+          toastAddedFav: "تم حفظه في المفضلة",
+          toastRemovedFav: "تمت إزالته من المفضلة",
+          toastOrderSuccess: "تم استلام طلبك بنجاح! سيتواصل معك فريق الكونسيرج قريباً.",
+          toastSubscribed: "أهلاً بك في النادي الخاص لدار أورا نوار!",
+          toastFamilyFilter: "تم اختيار العائلة العطرية:",
+          quizResultSub: "اختيارنا المثالي لك",
+          quizResultPrefix: "العطر الأنسب لشخصيتك:",
+          quizRestart: "إعادة الاختبار"
+        }
+      };
+
+      // OLFACTORY FAMILIES DATA (MULTILINGUAL)
+      const FAMILIES_DATA = [
+        {
+          key: "oriental",
+          img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80",
+          title: { ru: "Восточные и Пряные", en: "Oriental & Spicy", ar: "شرقية وتوابل دافئة" },
+          filterLabel: { ru: "Восточные", en: "Oriental", ar: "شرقية" },
+          desc: {
+            ru: "Амбра, шафран, ваниль, мирра и дымный ладан",
+            en: "Amber, saffron, vanilla, myrrh & smoky frankincense",
+            ar: "العنبر، الزعفران، الفانيليا، المر والبخور الفاخر"
+          }
+        },
+        {
+          key: "woody",
+          img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=700&q=80",
+          title: { ru: "Древесные и Удовые", en: "Woody & Oud", ar: "خشبية وعود ملكي" },
+          filterLabel: { ru: "Древесные", en: "Woody", ar: "خشبية" },
+          desc: {
+            ru: "Сандал, атласский кедр, ветивер и редкий уд",
+            en: "Sandalwood, Atlas cedar, vetiver & royal oud",
+            ar: "خشب الصندل، الأرز الأطلسي، نجيل الهند والعود الكمبودي"
+          }
+        },
+        {
+          key: "floral",
+          img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80",
+          title: { ru: "Цветочные и Пудровые", en: "Floral & Powdery", ar: "زهرية وبودرية ناعمة" },
+          filterLabel: { ru: "Цветочные", en: "Floral", ar: "زهرية" },
+          desc: {
+            ru: "Дамасская роза, жасмин самбак, ирис и османтус",
+            en: "Damask rose, jasmine sambac, iris & osmanthus",
+            ar: "الورد الدمشقي، الياسمين، السوسن الفلورنسي والمسك"
+          }
+        },
+        {
+          key: "fresh",
+          img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=700&q=80",
+          title: { ru: "Цитрусовые и Акватика", en: "Citrus & Aquatic", ar: "حمضيات ومنعشة" },
+          filterLabel: { ru: "Свежие", en: "Fresh", ar: "منعشة" },
+          desc: {
+            ru: "Калабрийский бергамот, морская соль, инжир и белый чай",
+            en: "Calabrian bergamot, sea salt, fig leaf & white tea",
+            ar: "البرغموت الإيطالي، ملح البحر، التين والشاي الأبيض"
+          }
+        }
+      ];
+
+      // PERFUMES DATABASE (MULTILINGUAL)
+      const PERFUMES = [
+        {
+          id: 1,
+          name: "Oud Mystique № 07",
+          familyKey: "woody",
+          basePriceRub: 24500,
+          image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Extrait de Parfum • Унисекс",
+            en: "Extrait de Parfum • Unisex",
+            ar: "إكستريت دي بارفان • للجنسين"
+          },
+          badge: { ru: "Бестселлер", en: "Bestseller", ar: "الأكثر مبيعاً" },
+          description: {
+            ru: "Глубокий, гипнотический и благородный аромат с королевским камбоджийским удом, окутанным тёплой дымкой ладана, кожи и пряного шафрана.",
+            en: "A deep, hypnotic and noble creation featuring royal Cambodian oud wrapped in warm smoky frankincense, leather, and spicy saffron.",
+            ar: "عطر عميق وساحر يجمع بين العود الكمبودي الملكي ونفحات البخور الدافئة والجلد الفاخر مع الزعفران الإيراني."
+          },
+          topNotes: {
+            ru: "Иранский шафран, Розовый перец, Бергамот",
+            en: "Iranian Saffron, Pink Pepper, Bergamot",
+            ar: "زعفران إيراني، فلفل وردي، برغموت"
+          },
+          heartNotes: {
+            ru: "Болгарская роза, Ладан, Пачули",
+            en: "Bulgarian Rose, Frankincense, Patchouli",
+            ar: "ورد بلغاري، لبان حوجري، باتشولي"
+          },
+          baseNotes: {
+            ru: "Камбоджийский уд, Кожа, Сандал, Серая амбра",
+            en: "Cambodian Oud, Leather, Sandalwood, Ambergris",
+            ar: "عود كمبودي معتق، جلد فاخر، خشب الصندل، عنبر"
+          },
+          longevity: {
+            ru: "Сверхстойкий (до 48 часов)",
+            en: "Ultra Long-lasting (up to 48h)",
+            ar: "ثبات فائق (حتى ٤٨ ساعة)"
+          },
+          sillage: {
+            ru: "Объёмный, обволакивающий",
+            en: "Rich & Enveloping",
+            ar: "فوحان قوي وآسر"
+          }
+        },
+        {
+          id: 2,
+          name: "Ambre Impérial",
+          familyKey: "oriental",
+          basePriceRub: 19800,
+          image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Eau de Parfum • Унисекс",
+            en: "Eau de Parfum • Unisex",
+            ar: "أو دي بارفان • للجنسين"
+          },
+          badge: { ru: "Новинка", en: "New Arrival", ar: "إصدار جديد" },
+          description: {
+            ru: "Чувственный золотой эликсир. Пьянящее сочетание мадагаскарской черной ванили, бобов тонка, корицы и смолистой амбры для прохладных вечеров.",
+            en: "A sensual golden elixir blending Madagascar black vanilla, tonka bean, Ceylon cinnamon, and resinous amber for unforgettable evenings.",
+            ar: "إكسير ذهبي دافئ يمزج بين فانيليا مدغشقر السوداء وحبوب التونكا والقرفة السيلانية مع العنبر الملكي."
+          },
+          topNotes: {
+            ru: "Цейлонская корица, Кардамон, Пряный аккорд",
+            en: "Ceylon Cinnamon, Cardamom, Warm Spices",
+            ar: "قرفة سيلانية، هيل فاخر، توابل دافئة"
+          },
+          heartNotes: {
+            ru: "Бобы тонка, Мирра, Финики и сухофрукты",
+            en: "Tonka Bean, Myrrh, Medjool Dates",
+            ar: "حبوب التونكا، المر، التمر الفاخر والفواكه المجففة"
+          },
+          baseNotes: {
+            ru: "Золотая амбра, Мадагаскарская ваниль, Бензоин",
+            en: "Golden Amber, Madagascar Vanilla, Benzoin",
+            ar: "عنبر ذهبي، فانيليا مدغشقر، الجاوي"
+          },
+          longevity: {
+            ru: "Высокая (12–16 часов)",
+            en: "High (12–16 hours)",
+            ar: "ثبات عالٍ (١٢–١٦ ساعة)"
+          },
+          sillage: {
+            ru: "Густой, бархатный",
+            en: "Velvety & Warm",
+            ar: "مخملي وجذاب"
+          }
+        },
+        {
+          id: 3,
+          name: "Velvet Rose & Iris",
+          familyKey: "floral",
+          basePriceRub: 22000,
+          image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Extrait de Parfum • Женский",
+            en: "Extrait de Parfum • Feminine",
+            ar: "إكستريت دي بارفان • نسائي"
+          },
+          badge: { ru: "Лимитированный", en: "Limited Edition", ar: "إصدار محدود" },
+          description: {
+            ru: "Утончённый букет бархатных лепестков грасской розы и пудрового флорентийского ириса с деликатной сладостью белого мускуса и спелой малины.",
+            en: "An exquisite bouquet of velvety Grasse rose petals and powdery Florentine iris caressed by white musk and ripe raspberry.",
+            ar: "باقة راقية من بتلات الورد الدمشقي والسوسن الفلورنسي البودري مع لمسة رقيقة من المسك الأبيض والتوت."
+          },
+          topNotes: {
+            ru: "Личи, Малина, Розовый грейпфрут",
+            en: "Lychee, Raspberry, Pink Grapefruit",
+            ar: "ليتشي، توت أحمر، جريب فروت وردي"
+          },
+          heartNotes: {
+            ru: "Дамасская роза, Пудра ириса, Пион",
+            en: "Damask Rose, Iris Pallida, Peony",
+            ar: "ورد دمشقي، بودرة السوسن، الفاوانيا"
+          },
+          baseNotes: {
+            ru: "Белый мускус, Кашмеран, Ванильная орхидея",
+            en: "White Musk, Cashmeran, Vanilla Orchid",
+            ar: "مسك أبيض صافي، أخشاب الكشمير، أوركيد الفانيليا"
+          },
+          longevity: {
+            ru: "Высокая (14 часов)",
+            en: "High (14 hours)",
+            ar: "ثبات عالٍ (١٤ ساعة)"
+          },
+          sillage: {
+            ru: "Утончённый, комплиментарный",
+            en: "Elegant & Compliment-getter",
+            ar: "ناعم وفواح بأناقة"
+          }
+        },
+        {
+          id: 4,
+          name: "Neroli & Sel Marin",
+          familyKey: "fresh",
+          basePriceRub: 17500,
+          image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Eau de Parfum • Унисекс",
+            en: "Eau de Parfum • Unisex",
+            ar: "أو دي بارفان • للجنسين"
+          },
+          badge: { ru: "Выбор сезона", en: "Resort Choice", ar: "انتعاش الصيف" },
+          description: {
+            ru: "Свежий средиземноморский бриз Лазурного берега. Искрящийся бергамот, цветы горького апельсина и кристаллы морской соли на кедровой базе.",
+            en: "A crisp Mediterranean breeze from the Côte d'Azur. Sparkling bergamot, bitter orange blossom, and sea salt crystals over white cedar.",
+            ar: "نسيم البحر الأبيض المتوسط المنعش مع البرغموت المتألق وزهر البرتقال وبلورات ملح البحر على قاعدة خشب الأرز."
+          },
+          topNotes: {
+            ru: "Сицилийский лимон, Калабрийский бергамот, Мандарин",
+            en: "Sicilian Lemon, Calabrian Bergamot, Mandarin",
+            ar: "ليمون صقلي، برغموت إيطالي، يوسفي"
+          },
+          heartNotes: {
+            ru: "Цветы нероли, Морская соль, Лист инжира",
+            en: "Neroli Blossom, Sea Salt, Fig Leaf",
+            ar: "زهر النيرولي، ملح البحر، أوراق التين"
+          },
+          baseNotes: {
+            ru: "Белый кедр, Дубовый мох, Амброксан",
+            en: "White Cedar, Oakmoss, Ambroxan",
+            ar: "خشب الأرز الأبيض، طحلب البلوط، أمبروكسان"
+          },
+          longevity: {
+            ru: "Средняя (8–10 часов)",
+            en: "Moderate-High (8–10 hours)",
+            ar: "جيد جداً (٨–١٠ ساعات)"
+          },
+          sillage: {
+            ru: "Свежий, воздушный",
+            en: "Crisp & Airy",
+            ar: "منعش وحيوي"
+          }
+        },
+        {
+          id: 5,
+          name: "Santal Noir Absolu",
+          familyKey: "woody",
+          basePriceRub: 23500,
+          image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Extrait de Parfum • Унисекс",
+            en: "Extrait de Parfum • Unisex",
+            ar: "إكستريت دي بارفان • للجنسين"
+          },
+          badge: { ru: "Топ продаж", en: "Top Rated", ar: "الأعلى تقييماً" },
+          description: {
+            ru: "Медитативный сливочный сандал из Майсура в обрамлении пряного кардамона, фиалкового листа и мягкой замши.",
+            en: "Meditative creamy Mysore sandalwood framed by spicy cardamom, violet leaf, and supple suede leather.",
+            ar: "خشب الصندل الهندي الكريمي الفاخر محاطاً بنفحات الهيل الأخضر وأوراق البنفسج والجلد المدبوغ الناعم."
+          },
+          topNotes: {
+            ru: "Зелёный кардамон, Лист фиалки, Кипарис",
+            en: "Green Cardamom, Violet Leaf, Cypress",
+            ar: "هيل أخضر، أوراق البنفسج، السرو"
+          },
+          heartNotes: {
+            ru: "Индийский сандал, Папирус, Ирис",
+            en: "Mysore Sandalwood, Papyrus, Orris",
+            ar: "خشب الصندل الهندي، ورق البردي، السوسن"
+          },
+          baseNotes: {
+            ru: "Мягкая замша, Вирджинский кедр, Мускус",
+            en: "Soft Suede, Virginia Cedar, Skin Musk",
+            ar: "جلد الغزال الناعم، خشب الأرز، مسك"
+          },
+          longevity: {
+            ru: "Высокая (18 часов)",
+            en: "High (18 hours)",
+            ar: "ثبات قوي (١٨ ساعة)"
+          },
+          sillage: {
+            ru: "Статусный, благородный",
+            en: "Sophisticated & Noble",
+            ar: "فخم ووقور"
+          }
+        },
+        {
+          id: 6,
+          name: "Tabac & Cherry Elixir",
+          familyKey: "oriental",
+          basePriceRub: 25900,
+          image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=900&q=80",
+          collection: {
+            ru: "Extrait de Parfum • Унисекс",
+            en: "Extrait de Parfum • Unisex",
+            ar: "إكستريت دي بارفان • للجنسين"
+          },
+          badge: { ru: "Эксклюзив", en: "Exclusive", ar: "حصري" },
+          description: {
+            ru: "Дерзкая и соблазнительная композиция: спелая чёрная вишня, горький миндаль и благородный лист табака с ванилью.",
+            en: "A bold and magnetic creation: ripe black cherry, bitter almond, and noble tobacco leaf infused with rich vanilla.",
+            ar: "تركيبة جريئة وساحرة تجمع بين الكرز الأسود الناضج واللوز المر مع أوراق التبغ الفاخرة والفانيليا الدافئة."
+          },
+          topNotes: {
+            ru: "Чёрная вишня, Горький миндаль, Шафран",
+            en: "Black Cherry, Bitter Almond, Saffron",
+            ar: "كرز أسود، لوز مر، زعفران"
+          },
+          heartNotes: {
+            ru: "Лист табака, Турецкая роза, Гвоздика",
+            en: "Tobacco Leaf, Turkish Rose, Clove",
+            ar: "أوراق التبغ الفاخر، ورد تركي، قرنفل"
+          },
+          baseNotes: {
+            ru: "Перуанский бальзам, Бобы тонка, Ветивер",
+            en: "Peru Balsam, Tonka Bean, Vetiver",
+            ar: "بلسم بيرو، حبوب التونكا، نجيل الهند"
+          },
+          longevity: {
+            ru: "Сверхстойкий (24+ часа)",
+            en: "Ultra Long-lasting (24+ hours)",
+            ar: "ثبات فائق (أكثر من ٢٤ ساعة)"
+          },
+          sillage: {
+            ru: "Яркий, магнетический",
+            en: "Bold & Magnetic",
+            ar: "جذاب ولا يُقاوم"
+          }
+        }
+      ];
+
+      // JOURNAL ARTICLES (MULTILINGUAL)
+      const ARTICLES = [
+        {
+          id: 1,
+          image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=80",
+          tag: { ru: "Искусство нанесения", en: "Application Ritual", ar: "فن التعطّر" },
+          title: {
+            ru: "Как раскрыть пирамиду нишевого аромата на 100%",
+            en: "How to Unlock the Full Pyramid of a Niche Perfume",
+            ar: "كيف تبرز جمال وثبات العطور النيش بنسبة ١٠٠٪"
+          },
+          preview: {
+            ru: "Почему нельзя растирать духи на запястьях и какие точки тела лучше всего удерживают шлейф.",
+            en: "Why you should never rub your wrists together and which pulse points hold sillage the longest.",
+            ar: "لماذا يجب عدم فرك المعصمين بعد رش العطر وأفضل نقاط النبض لثبات يدوم طويلاً."
+          },
+          content: {
+            ru: `<p>Нишевая парфюмерия содержит высокую долю натуральных эфирных масел и абсолютов. При трении запястий кожа нагревается, и верхние ноты разрушаются быстрее времени. Распыляйте аромат облаком с расстояния 15–20 см на увлажнённую кожу.</p>`,
+            en: `<p>Niche perfumery contains a high concentration of natural essential oils and absolutes. Rubbing your wrists creates friction that heats the skin and crushes delicate top notes prematurely. Mist from 15–20 cm onto moisturized pulse points.</p>`,
+            ar: `<p>تحتوي العطور النيش على نسبة عالية من الزيوت الطبيعية النقية. إن فرك المعصمين يولّد حرارة تكسر جزيئات المقدمة العطرية سريعاً. رش العطر من مسافة ١٥-٢٠ سم على بشرة مرطبة في أماكن النبض لثبات مضاعف.</p>`
+          }
+        },
+        {
+          id: 2,
+          image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80",
+          tag: { ru: "Ингредиенты", en: "Raw Ingredients", ar: "المكونات النادرة" },
+          title: {
+            ru: "Жидкое золото: почему натуральный уд ценится дороже золота",
+            en: "Liquid Gold: Why Wild Agarwood Oud Is More Precious Than Gold",
+            ar: "الذهب السائل: لماذا يُعد دهن العود الطبيعي أغلى من الذهب؟"
+          },
+          preview: {
+            ru: "История происхождения агарового дерева и его гипнотического древесно-бальзамического звучания.",
+            en: "The mystical origin of agarwood resin and its hypnotic woody-balsamic profile.",
+            ar: "رحلة استخراج خشب العود النادر وسر رائحته الملكية العميقة التي تأسر الحواس."
+          },
+          content: {
+            ru: `<p>Уд (агаровое дерево) — один из самых редких компонентов в мире парфюмерии. Смола созревает десятилетиями, даря глубокий древесный, кожаный и медово-дымный профиль.</p>`,
+            en: `<p>Oud (agarwood) is one of the rarest ingredients in haute parfumerie. The resin matures over decades inside Aquilaria trees, yielding a complex smoky, leathery, and honeyed wood aroma.</p>`,
+            ar: `<p>يُعتبر العود الطبيعي من أندر وأغلى المكونات في عالم العطور الفاخرة. تتشكل الراتنجات العطرية داخل أشجار الأكويلاريا عبر عشرات السنين لتمنحنا رائحة خشبية بخورية ملكية لا مثيل لها.</p>`
+          }
+        },
+        {
+          id: 3,
+          image: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80",
+          tag: { ru: "Гид покупателя", en: "Connoisseur Guide", ar: "دليل الخبراء" },
+          title: {
+            ru: "Extrait de Parfum и Eau de Parfum: в чём разница?",
+            en: "Extrait de Parfum vs. Eau de Parfum: What Is the Difference?",
+            ar: "الفرق بين إكستريت دي بارفان وأو دي بارفان"
+          },
+          preview: {
+            ru: "Разбираемся в концентрациях ароматических веществ и выбираем формат под сезон.",
+            en: "Understanding aromatic oil concentrations and choosing the right strength for every season.",
+            ar: "تعرّف على نسب تركيز الزيوت العطرية وكيف تختار التركيز الأنسب لكل فصل ومناسبة."
+          },
+          content: {
+            ru: `<p><strong>Extrait de Parfum (Духи):</strong> 25–40% ароматических масел — максимальная глубина и стойкость до 48 часов.<br><strong>Eau de Parfum:</strong> 15–20% масел — яркий и летучий шлейф на каждый день.</p>`,
+            en: `<p><strong>Extrait de Parfum:</strong> 25–40% aromatic oils for intimate depth and up to 48-hour longevity.<br><strong>Eau de Parfum:</strong> 15–20% oils for vibrant projection and versatile wear.</p>`,
+            ar: `<p><strong>إكستريت دي بارفان (Extrait):</strong> يحتوي على ٢٥–٤٠٪ من الزيوت العطرية النقية لعمق وثبات يصل إلى ٤٨ ساعة.<br><strong>أو دي بارفان (Eau de Parfum):</strong> يحتوي على ١٥–٢٠٪ ليمنحك فوحاناً متألقاً يناسب الاستخدام اليومي والمناسبات.</p>`
+          }
+        }
+      ];
+
+      // STATE
+      let activeFilter = "all";
+      let searchQuery = "";
+      let sortOrder = "popular";
+      let cart = []; // { id, volKey, mult, qty }
+      let favorites = new Set();
+
+      // FORMAT CURRENCY PER LANGUAGE
+      function formatPrice(rubAmount) {
+        if (currentLang === "en") {
+          const usd = Math.round(rubAmount / 90);
+          return "$" + usd.toLocaleString("en-US");
+        }
+        if (currentLang === "ar") {
+          const sar = Math.round(rubAmount / 24);
+          return sar.toLocaleString("ar-SA") + " ر.س";
+        }
+        return rubAmount.toLocaleString("ru-RU") + " ₽";
+      }
+
+      // SHOW TOAST
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        document.getElementById("toastText").textContent = msg;
+        toast.classList.add("active");
+        setTimeout(() => toast.classList.remove("active"), 3000);
+      }
+
+      // APPLY LANGUAGE TO ENTIRE PAGE
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("aura_lang", lang);
+        const t = I18N[lang];
+
+        document.documentElement.lang = lang;
+        document.documentElement.dir = t.dir;
+        document.title = t.title;
+
+        // Update active language button
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+
+        // Static texts
+        document.getElementById("promoBarText").textContent = t.promoBar;
+        document.getElementById("logoSub").textContent = t.logoSub;
+        document.getElementById("footerLogoSub").textContent = t.logoSub;
+
+        document.getElementById("navCatalog").textContent = t.navCatalog;
+        document.getElementById("navFamilies").textContent = t.navFamilies;
+        document.getElementById("navQuiz").textContent = t.navQuiz;
+        document.getElementById("navJournal").textContent = t.navJournal;
+        document.getElementById("aboutBrandBtn").textContent = t.navAbout;
+
+        document.getElementById("heroEyebrow").textContent = t.heroEyebrow;
+        document.getElementById("heroTitle").innerHTML = t.heroTitle;
+        document.getElementById("heroDesc").innerHTML = t.heroDesc;
+        document.getElementById("heroBtnCatalog").innerHTML = t.heroBtnCatalog;
+        document.getElementById("startQuizHeroBtn").innerHTML = t.heroBtnQuiz;
+        document.getElementById("heroBtnPromoVideo").innerHTML = t.heroBtnVideo;
+
+        document.getElementById("statLabel1").textContent = t.statLabel1;
+        document.getElementById("statVal2").textContent = t.statVal2;
+        document.getElementById("statLabel2").textContent = t.statLabel2;
+        document.getElementById("statLabel3").textContent = t.statLabel3;
+        document.getElementById("heroBadgeSub").textContent = t.heroBadgeSub;
+
+        document.getElementById("familiesSub").textContent = t.familiesSub;
+        document.getElementById("familiesTitle").textContent = t.familiesTitle;
+        document.getElementById("familiesHint").textContent = t.familiesHint;
+
+        document.getElementById("catalogSub").textContent = t.catalogSub;
+        document.getElementById("catalogTitle").textContent = t.catalogTitle;
+        document.getElementById("searchPerfumeInput").placeholder = t.searchPlaceholder;
+        document.getElementById("sortOptPopular").textContent = t.sortPopular;
+        document.getElementById("sortOptAsc").textContent = t.sortAsc;
+        document.getElementById("sortOptDesc").textContent = t.sortDesc;
+
+        document.getElementById("quizSub").textContent = t.quizSub;
+        document.getElementById("quizBannerTitle").textContent = t.quizBannerTitle;
+        document.getElementById("quizBannerDesc").textContent = t.quizBannerDesc;
+        document.getElementById("openQuizModalBtn").innerHTML = t.openQuizBtn;
+
+        document.getElementById("journalSub").textContent = t.journalSub;
+        document.getElementById("journalTitle").textContent = t.journalTitle;
+
+        document.getElementById("footerAboutText").textContent = t.footerAboutText;
+        document.getElementById("footerNavHeading").textContent = t.footerNavHeading;
+        document.getElementById("fLinkCatalog").textContent = t.navCatalog;
+        document.getElementById("fLinkFamilies").textContent = t.navFamilies;
+        document.getElementById("fLinkQuiz").textContent = t.navQuiz;
+        document.getElementById("fLinkJournal").textContent = t.navJournal;
+
+        document.getElementById("footerClientHeading").textContent = t.footerClientHeading;
+        document.getElementById("deliveryInfoBtn").textContent = t.deliveryLink;
+        document.getElementById("sampleSetBtn").textContent = t.sampleSetLink;
+        document.getElementById("contactsModalBtn").textContent = t.contactsLink;
+
+        document.getElementById("footerClubHeading").textContent = t.footerClubHeading;
+        document.getElementById("footerClubDesc").textContent = t.footerClubDesc;
+        document.getElementById("newsletterInput").placeholder = t.newsletterPlaceholder;
+        document.getElementById("footerCopyright").textContent = t.footerCopyright;
+        document.getElementById("footerAddresses").textContent = t.footerAddresses;
+
+        renderFamilies();
+        renderFilterButtons();
+        renderCatalog();
+        renderJournal();
+      }
+
+      // RENDER OLFACTORY FAMILIES
+      function renderFamilies() {
+        const grid = document.getElementById("familiesGrid");
+        grid.innerHTML = FAMILIES_DATA.map(
+          (f) => `
+          <div class="family-card" data-family="${f.key}" style="--bg-img: url('${f.img}');">
+            <h3>${f.title[currentLang]}</h3>
+            <p>${f.desc[currentLang]}</p>
+          </div>
+        `
+        ).join("");
+
+        grid.querySelectorAll(".family-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            activeFilter = card.dataset.family;
+            renderFilterButtons();
+            renderCatalog();
+            document.getElementById("catalog").scrollIntoView({ behavior: "smooth" });
+            const famObj = FAMILIES_DATA.find((x) => x.key === activeFilter);
+            showToast(`${I18N[currentLang].toastFamilyFilter} ${famObj.filterLabel[currentLang]}`);
+          });
+        });
+      }
+
+      // RENDER FILTER BUTTONS
+      function renderFilterButtons() {
+        const container = document.getElementById("categoryFilters");
+        const allBtn = `<button class="filter-btn ${activeFilter === "all" ? "active" : ""}" data-filter="all">${I18N[currentLang].filterAll}</button>`;
+        const famBtns = FAMILIES_DATA.map(
+          (f) => `<button class="filter-btn ${activeFilter === f.key ? "active" : ""}" data-filter="${f.key}">${f.filterLabel[currentLang]}</button>`
+        ).join("");
+        container.innerHTML = allBtn + famBtns;
+      }
+
+      // RENDER CATALOG
+      function renderCatalog() {
+        const t = I18N[currentLang];
+        const container = document.getElementById("productsContainer");
+
+        let list = PERFUMES.filter((p) => {
+          const matchesCat = activeFilter === "all" || p.familyKey === activeFilter;
+          const q = searchQuery.toLowerCase();
+          const matchesSearch =
+            p.name.toLowerCase().includes(q) ||
+            p.topNotes[currentLang].toLowerCase().includes(q) ||
+            p.heartNotes[currentLang].toLowerCase().includes(q) ||
+            p.baseNotes[currentLang].toLowerCase().includes(q) ||
+            p.description[currentLang].toLowerCase().includes(q);
+          return matchesCat && matchesSearch;
+        });
+
+        if (sortOrder === "price-asc") {
+          list.sort((a, b) => a.basePriceRub - b.basePriceRub);
+        } else if (sortOrder === "price-desc") {
+          list.sort((a, b) => b.basePriceRub - a.basePriceRub);
+        }
+
+        if (list.length === 0) {
+          container.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+              <h3 style="font-family: var(--font-serif); font-size: 28px; color: var(--text);">${t.noProductsTitle}</h3>
+              <p>${t.noProductsDesc}</p>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = list
+          .map((p) => {
+            const isFav = favorites.has(p.id);
+            const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey);
+            return `
+            <article class="product-card">
+              <div class="product-img-wrap" data-open-id="${p.id}">
+                <div class="product-badges">
+                  <span class="tag-badge">${p.badge[currentLang]}</span>
+                </div>
+                <button class="fav-btn ${isFav ? "active" : ""}" data-fav-id="${p.id}">
+                  <i class="${isFav ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                </button>
+                <img src="${p.image}" alt="${p.name}" />
+              </div>
+
+              <div class="product-body">
+                <div class="product-brand">${p.collection[currentLang]} • ${famObj.filterLabel[currentLang]}</div>
+                <h3 class="product-title" data-open-id="${p.id}">${p.name}</h3>
+                <p class="product-notes-preview">
+                  <strong>${t.notesLabel}</strong> ${p.topNotes[currentLang]}, ${p.heartNotes[currentLang]}
+                </p>
+
+                <div class="product-footer">
+                  <div class="product-price">
+                    ${formatPrice(p.basePriceRub)}
+                    <span>${t.per50ml}</span>
+                  </div>
+                  <div class="product-actions">
+                    <button class="btn-icon-only" data-open-id="${p.id}">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                    <button class="btn-buy" data-buy-id="${p.id}">
+                      <i class="fa-solid fa-plus"></i> ${t.addToCartBtn}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+          })
+          .join("");
+      }
+
+      // RENDER JOURNAL
+      function renderJournal() {
+        const t = I18N[currentLang];
+        const arrowIcon = t.dir === "rtl" ? "fa-arrow-left" : "fa-arrow-right";
+        document.getElementById("journalContainer").innerHTML = ARTICLES.map(
+          (a) => `
+          <article class="journal-card" data-article-id="${a.id}">
+            <img src="${a.image}" alt="${a.title[currentLang]}" class="journal-img" />
+            <div class="journal-body">
+              <span class="journal-tag">${a.tag[currentLang]}</span>
+              <h3>${a.title[currentLang]}</h3>
+              <p>${a.preview[currentLang]}</p>
+              <span class="journal-link">${t.readArticle} <i class="fa-solid ${arrowIcon}"></i></span>
+            </div>
+          </article>
+        `
+        ).join("");
+      }
+
+      // PRODUCT PYRAMID MODAL
+      const productModalBackdrop = document.getElementById("productModalBackdrop");
+      const productModalContent = document.getElementById("productModalContent");
+
+      function openProductModal(id) {
+        const p = PERFUMES.find((item) => item.id === id);
+        if (!p) return;
+        const t = I18N[currentLang];
+        const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey);
+
+        let selectedVolKey = "vol50";
+        let selectedMult = 1;
+
+        function renderModalInner() {
+          const currentRubPrice = Math.round(p.basePriceRub * selectedMult);
+          productModalContent.innerHTML = `
+            <div>
+              <img src="${p.image}" alt="${p.name}" class="product-modal-img" />
+            </div>
+            <div class="product-modal-info">
+              <span class="section-subtitle">${p.collection[currentLang]} • ${famObj.filterLabel[currentLang]}</span>
+              <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 10px;">${p.name}</h2>
+              <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">${p.description[currentLang]}</p>
+
+              <div class="pyramid-box">
+                <div class="pyramid-title">
+                  <i class="fa-solid fa-layer-group"></i> ${t.pyramidTitle}
+                </div>
+                <div class="pyramid-tier">
+                  <span class="tier-label">${t.topNotesLabel}</span>
+                  <span class="tier-notes">${p.topNotes[currentLang]}</span>
+                </div>
+                <div class="pyramid-tier">
+                  <span class="tier-label">${t.heartNotesLabel}</span>
+                  <span class="tier-notes">${p.heartNotes[currentLang]}</span>
+                </div>
+                <div class="pyramid-tier">
+                  <span class="tier-label">${t.baseNotesLabel}</span>
+                  <span class="tier-notes">${p.baseNotes[currentLang]}</span>
+                </div>
+              </div>
+
+              <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px; display: flex; gap: 20px; flex-wrap: wrap;">
+                <span><strong style="color: var(--text);">${t.longevityLabel}</strong> ${p.longevity[currentLang]}</span>
+                <span><strong style="color: var(--text);">${t.sillageLabel}</strong> ${p.sillage[currentLang]}</span>
+              </div>
+
+              <div style="font-size: 12px; text-transform: uppercase; color: var(--gold-light); margin-top: 8px;">
+                ${t.chooseVolume}
+              </div>
+              <div class="volume-selector">
+                <button class="vol-btn ${selectedVolKey === "vol10" ? "active" : ""}" data-vkey="vol10" data-mult="0.3">
+                  ${t.vol10}<br><small>${formatPrice(Math.round(p.basePriceRub * 0.3))}</small>
+                </button>
+                <button class="vol-btn ${selectedVolKey === "vol50" ? "active" : ""}" data-vkey="vol50" data-mult="1">
+                  ${t.vol50}<br><small>${formatPrice(p.basePriceRub)}</small>
+                </button>
+                <button class="vol-btn ${selectedVolKey === "vol100" ? "active" : ""}" data-vkey="vol100" data-mult="1.6">
+                  ${t.vol100}<br><small>${formatPrice(Math.round(p.basePriceRub * 1.6))}</small>
+                </button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: auto;">
+                <div>
+                  <span style="font-size: 11px; color: var(--text-muted); display: block;">${t.priceLabel}</span>
+                  <strong style="font-family: var(--font-serif); font-size: 32px; color: var(--gold);">${formatPrice(currentRubPrice)}</strong>
+                </div>
+                <button class="btn btn-gold" id="modalAddToCartBtn" style="flex: 1;">
+                  <i class="fa-solid fa-bag-shopping"></i> ${t.addToCartBtn}
+                </button>
+              </div>
+            </div>
+          `;
+
+          productModalContent.querySelectorAll(".vol-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              selectedVolKey = btn.dataset.vkey;
+              selectedMult = parseFloat(btn.dataset.mult);
+              renderModalInner();
+            });
+          });
+
+          document.getElementById("modalAddToCartBtn").addEventListener("click", () => {
+            addToCart(p.id, selectedVolKey, selectedMult);
+            productModalBackdrop.classList.remove("active");
+          });
+        }
+
+        renderModalInner();
+        productModalBackdrop.classList.add("active");
+      }
+
+      // CART & FAVORITES
+      function addToCart(id, volKey = "vol50", mult = 1) {
+        const p = PERFUMES.find((item) => item.id === id);
+        if (!p) return;
+        const t = I18N[currentLang];
+        const existing = cart.find((item) => item.id === id && item.volKey === volKey);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ id, volKey, mult, qty: 1 });
+        }
+        updateBadges();
+        showToast(`«${p.name}» (${t[volKey]}) — ${t.toastAddedCart}`);
+      }
+
+      function toggleFavorite(id) {
+        const p = PERFUMES.find((item) => item.id === id);
+        const t = I18N[currentLang];
+        if (favorites.has(id)) {
+          favorites.delete(id);
+          showToast(`«${p.name}» — ${t.toastRemovedFav}`);
+        } else {
+          favorites.add(id);
+          showToast(`«${p.name}» — ${t.toastAddedFav}`);
+        }
+        updateBadges();
+        renderCatalog();
+      }
+
+      function updateBadges() {
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById("cartCountBadge").textContent = totalQty;
+        document.getElementById("favCountBadge").textContent = favorites.size;
+      }
+
+      // DRAWER RENDERING
+      const drawerBackdrop = document.getElementById("drawerBackdrop");
+      const drawerTitle = document.getElementById("drawerTitle");
+      const drawerBody = document.getElementById("drawerBody");
+      const drawerFooter = document.getElementById("drawerFooter");
+
+      function openCartDrawer() {
+        const t = I18N[currentLang];
+        drawerTitle.textContent = t.cartTitle;
+        if (cart.length === 0) {
+          drawerBody.innerHTML = `
+            <div style="text-align: center; padding: 60px 10px; color: var(--text-muted);">
+              <i class="fa-solid fa-bag-shopping" style="font-size: 40px; color: var(--gold); margin-bottom: 14px; opacity: 0.6;"></i>
+              <p>${t.cartEmpty}</p>
+            </div>
+          `;
+          drawerFooter.innerHTML = "";
+        } else {
+          let totalRub = 0;
+          drawerBody.innerHTML = cart
+            .map((item, idx) => {
+              const p = PERFUMES.find((x) => x.id === item.id);
+              const unitRub = Math.round(p.basePriceRub * item.mult);
+              const lineRub = unitRub * item.qty;
+              totalRub += lineRub;
+              return `
+                <div class="cart-item">
+                  <img src="${p.image}" alt="${p.name}" />
+                  <div class="cart-item-info">
+                    <div class="cart-item-title">${p.name}</div>
+                    <div class="cart-item-meta">${t[item.volKey]} • ${formatPrice(unitRub)}</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                      <div class="qty-controls">
+                        <button class="qty-btn" data-idx="${idx}" data-delta="-1">−</button>
+                        <span class="qty-val">${item.qty}</span>
+                        <button class="qty-btn" data-idx="${idx}" data-delta="1">+</button>
+                      </div>
+                      <strong style="color: var(--gold-light); font-size: 14px;">${formatPrice(lineRub)}</strong>
+                    </div>
+                  </div>
+                </div>
+              `;
+            })
+            .join("");
+
+          drawerFooter.innerHTML = `
+            <div class="cart-total-row">
+              <span>${t.totalLabel}</span>
+              <strong>${formatPrice(totalRub)}</strong>
+            </div>
+            <button class="btn btn-gold" id="checkoutBtn" style="width: 100%;">
+              ${t.checkoutBtn} <i class="fa-solid fa-check"></i>
+            </button>
+          `;
+
+          drawerBody.querySelectorAll(".qty-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const idx = parseInt(btn.dataset.idx);
+              const delta = parseInt(btn.dataset.delta);
+              cart[idx].qty += delta;
+              if (cart[idx].qty <= 0) cart.splice(idx, 1);
+              updateBadges();
+              openCartDrawer();
+            });
+          });
+
+          document.getElementById("checkoutBtn").addEventListener("click", () => {
+            cart = [];
+            updateBadges();
+            drawerBackdrop.classList.remove("active");
+            showToast(t.toastOrderSuccess);
+          });
+        }
+        drawerBackdrop.classList.add("active");
+      }
+
+      function openFavDrawer() {
+        const t = I18N[currentLang];
+        drawerTitle.textContent = t.favTitle;
+        drawerFooter.innerHTML = "";
+        if (favorites.size === 0) {
+          drawerBody.innerHTML = `
+            <div style="text-align: center; padding: 60px 10px; color: var(--text-muted);">
+              <i class="fa-regular fa-heart" style="font-size: 40px; color: var(--gold); margin-bottom: 14px; opacity: 0.6;"></i>
+              <p>${t.favEmpty}</p>
+            </div>
+          `;
+        } else {
+          const favItems = PERFUMES.filter((p) => favorites.has(p.id));
+          drawerBody.innerHTML = favItems
+            .map(
+              (p) => `
+              <div class="cart-item">
+                <img src="${p.image}" alt="${p.name}" />
+                <div class="cart-item-info">
+                  <div class="cart-item-title">${p.name}</div>
+                  <div class="cart-item-meta">${formatPrice(p.basePriceRub)}</div>
+                  <button class="btn-buy" data-fav-buy="${p.id}" style="height: 32px; font-size: 10px;">
+                    ${t.addToCartBtn}
+                  </button>
+                </div>
+              </div>
+            `
+            )
+            .join("");
+
+          drawerBody.querySelectorAll("[data-fav-buy]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              addToCart(parseInt(btn.dataset.favBuy));
+              openCartDrawer();
+            });
+          });
+        }
+        drawerBackdrop.classList.add("active");
+      }
+
+      // GENERIC MODAL
+      const articleModalBackdrop = document.getElementById("articleModalBackdrop");
+      const articleModalContent = document.getElementById("articleModalContent");
+
+      function openGenericModal(tag, title, htmlBody, image = null) {
+        articleModalContent.innerHTML = `
+          ${image ? `<img src="${image}" alt="${title}" style="width:100%; height:280px; object-fit:cover;" />` : ""}
+          <div style="padding: 36px;">
+            <span class="section-subtitle">${tag}</span>
+            <h2 style="font-family: var(--font-serif); font-size: 34px; margin-bottom: 18px;">${title}</h2>
+            <div style="color: var(--text-muted); font-size: 15px; line-height: 1.8;">
+              ${htmlBody}
+            </div>
+          </div>
+        `;
+        articleModalBackdrop.classList.add("active");
+      }
+
+      // MULTILINGUAL SCENT QUIZ
+      const quizModalBackdrop = document.getElementById("quizModalBackdrop");
+      const quizModalBody = document.getElementById("quizModalBody");
+
+      const QUIZ_DATA = {
+        ru: [
+          {
+            title: "Шаг 1 из 2: Какое настроение вам ближе?",
+            options: [
+              { label: "Загадочное и статусное", desc: "Глубокий шлейф уда, кожи и сандала", fam: "woody" },
+              { label: "Тёплое и соблазнительное", desc: "Пряности, золотая амбра, вишня и ваниль", fam: "oriental" },
+              { label: "Утончённое и романтичное", desc: "Бархатная роза, пудровый ирис и мускус", fam: "floral" },
+              { label: "Свежее и энергичное", desc: "Морской бриз, цитрусы и белый кедр", fam: "fresh" }
+            ]
+          },
+          {
+            title: "Шаг 2 из 2: Для какого повода вы ищете парфюм?",
+            options: [
+              { label: "Вечерний выход и особый случай", desc: "Максимальная глубина и комплиментарность", fam: "oriental" },
+              { label: "Деловые встречи и статус", desc: "Благородный древесно-кожаный аккорд", fam: "woody" },
+              { label: "Свидание и прогулки", desc: "Нежный обволакивающий шлейф", fam: "floral" },
+              { label: "На каждый день и в путешествие", desc: "Чистота и средиземноморская свежесть", fam: "fresh" }
+            ]
+          }
+        ],
+        en: [
+          {
+            title: "Step 1 of 2: Which aura resonates with you?",
+            options: [
+              { label: "Mysterious & Commanding", desc: "Deep trail of royal oud, leather, and sandalwood", fam: "woody" },
+              { label: "Warm & Seductive", desc: "Precious spices, golden amber, black cherry, and vanilla", fam: "oriental" },
+              { label: "Refined & Romantic", desc: "Velvety Damask rose, powdery iris, and white musk", fam: "floral" },
+              { label: "Crisp & Luminous", desc: "Coastal sea breeze, Italian citrus, and white cedar", fam: "fresh" }
+            ]
+          },
+          {
+            title: "Step 2 of 2: What is the primary occasion?",
+            options: [
+              { label: "Gala Evening & Special Nights", desc: "Maximum richness and magnetic sillage", fam: "oriental" },
+              { label: "Executive & Signature Wear", desc: "Noble woody and suede sophistication", fam: "woody" },
+              { label: "Intimate Encounters", desc: "Soft, velvety floral embrace", fam: "floral" },
+              { label: "Daily Luxury & Resort", desc: "Effortless Mediterranean freshness", fam: "fresh" }
+            ]
+          }
+        ],
+        ar: [
+          {
+            title: "الخطوة ١ من ٢: ما هو الطابع العطري الذي يعبّر عنك؟",
+            options: [
+              { label: "غامض وملكي فخم", desc: "نفحات عميقة من العود الكمبودي والجلد وخشب الصندل", fam: "woody" },
+              { label: "دافئ وجذاب ساحر", desc: "العنبر الذهبي، التوابل، الكرز الأسود والفانيليا", fam: "oriental" },
+              { label: "راقٍ ورومانسي ناعم", desc: "الورد الدمشقي، السوسن البودري والمسك الأبيض", fam: "floral" },
+              { label: "منعش ومفعم بالحيوية", desc: "نسيم البحر، البرغموت الإيطالي وخشب الأرز", fam: "fresh" }
+            ]
+          },
+          {
+            title: "الخطوة ٢ من ٢: ما هي المناسبة المفضلة لهذا العطر؟",
+            options: [
+              { label: "السهرات والمناسبات الخاصة", desc: "فوحان قوي وثبات استثنائي يلفت الأنظار", fam: "oriental" },
+              { label: "الاجتماعات الرسمية والتميز", desc: "حضور فخم ووقور بنفحات خشبية", fam: "woody" },
+              { label: "اللقاءات الهادئة والأمسيات", desc: "عبير مخملي رقيق وجذاب", fam: "floral" },
+              { label: "الاستخدام اليومي والسفر", desc: "انتعاش نقي يدوم طوال اليوم", fam: "fresh" }
+            ]
+          }
+        ]
+      };
+
+      function startScentQuiz() {
+        let step = 0;
+        let chosenFam = "woody";
+        const questions = QUIZ_DATA[currentLang];
+        const t = I18N[currentLang];
+
+        function renderQuizStep() {
+          if (step < questions.length) {
+            const q = questions[step];
+            quizModalBody.innerHTML = `
+              <span class="section-subtitle">${t.quizSub}</span>
+              <h3 style="font-family: var(--font-serif); font-size: 30px; margin-bottom: 10px;">${q.title}</h3>
+              <div class="quiz-options">
+                ${q.options
+                  .map(
+                    (opt) => `
+                  <button class="quiz-option-btn" data-fam="${opt.fam}">
+                    <strong>${opt.label}</strong>
+                    <span>${opt.desc}</span>
+                  </button>
+                `
+                  )
+                  .join("")}
+              </div>
+            `;
+
+            quizModalBody.querySelectorAll(".quiz-option-btn").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                chosenFam = btn.dataset.fam;
+                step++;
+                renderQuizStep();
+              });
+            });
+          } else {
+            const match = PERFUMES.find((p) => p.familyKey === chosenFam) || PERFUMES[0];
+            quizModalBody.innerHTML = `
+              <span class="section-subtitle">${t.quizResultSub}</span>
+              <h3 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 18px;">${t.quizResultPrefix} ${match.name}</h3>
+              <div style="display: grid; grid-template-columns: 160px 1fr; gap: 22px; align-items: center; background: rgba(255,255,255,0.02); padding: 18px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 24px;">
+                <img src="${match.image}" alt="${match.name}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;" />
+                <div>
+                  <div style="color: var(--gold); font-size: 12px; text-transform: uppercase;">${match.collection[currentLang]}</div>
+                  <p style="font-size: 13px; color: var(--text-muted); margin: 8px 0;">${match.description[currentLang]}</p>
+                  <p style="font-size: 12px; color: var(--gold-light);"><strong>${t.notesLabel}</strong> ${match.topNotes[currentLang]}, ${match.baseNotes[currentLang]}</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="btn btn-gold" id="quizBuyMatchBtn" style="flex: 1;">
+                  ${t.addToCartBtn} (${formatPrice(match.basePriceRub)})
+                </button>
+                <button class="btn btn-outline" id="quizRestartBtn">
+                  ${t.quizRestart}
+                </button>
+              </div>
+            `;
+
+            document.getElementById("quizBuyMatchBtn").addEventListener("click", () => {
+              addToCart(match.id);
+              quizModalBackdrop.classList.remove("active");
+            });
+
+            document.getElementById("quizRestartBtn").addEventListener("click", () => {
+              step = 0;
+              renderQuizStep();
+            });
+          }
+        }
+
+        renderQuizStep();
+        quizModalBackdrop.classList.add("active");
+      }
+
+      // GLOBAL CLICK HANDLERS
+      document.addEventListener("click", (e) => {
+        // Language switcher click
+        const langBtn = e.target.closest(".lang-btn");
+        if (langBtn) {
+          setLanguage(langBtn.dataset.lang);
+          return;
+        }
+
+        // Open product modal
+        const openBtn = e.target.closest("[data-open-id]");
+        if (openBtn) {
+          openProductModal(parseInt(openBtn.dataset.openId));
+          return;
+        }
+
+        // Buy button
+        const buyBtn = e.target.closest("[data-buy-id]");
+        if (buyBtn) {
+          addToCart(parseInt(buyBtn.dataset.buyId));
+          return;
+        }
+
+        // Favorite button
+        const favBtn = e.target.closest("[data-fav-id]");
+        if (favBtn) {
+          toggleFavorite(parseInt(favBtn.dataset.favId));
+          return;
+        }
+
+        // Journal card
+        const artCard = e.target.closest("[data-article-id]");
+        if (artCard) {
+          const art = ARTICLES.find((a) => a.id === parseInt(artCard.dataset.articleId));
+          if (art) openGenericModal(art.tag[currentLang], art.title[currentLang], art.content[currentLang], art.image);
+          return;
+        }
+      });
+
+      // Category Filter Click
+      document.getElementById("categoryFilters").addEventListener("click", (e) => {
+        const btn = e.target.closest(".filter-btn");
+        if (!btn) return;
+        activeFilter = btn.dataset.filter;
+        renderFilterButtons();
+        renderCatalog();
+      });
+
+      // Search & Sort
+      document.getElementById("searchPerfumeInput").addEventListener("input", (e) => {
+        searchQuery = e.target.value.trim();
+        renderCatalog();
+      });
+
+      document.getElementById("sortSelect").addEventListener("change", (e) => {
+        sortOrder = e.target.value;
+        renderCatalog();
+      });
+
+      // Close Modals & Drawers
+      document.getElementById("closeProductModal").addEventListener("click", () => productModalBackdrop.classList.remove("active"));
+      document.getElementById("closeArticleModal").addEventListener("click", () => articleModalBackdrop.classList.remove("active"));
+      document.getElementById("closeQuizModal").addEventListener("click", () => quizModalBackdrop.classList.remove("active"));
+      document.getElementById("closeDrawerBtn").addEventListener("click", () => drawerBackdrop.classList.remove("active"));
+
+      [productModalBackdrop, articleModalBackdrop, quizModalBackdrop, drawerBackdrop].forEach((el) => {
+        el.addEventListener("click", (e) => {
+          if (e.target === el) el.classList.remove("active");
+        });
+      });
+
+      // Open Drawers & Quiz
+      document.getElementById("openCartDrawerBtn").addEventListener("click", openCartDrawer);
+      document.getElementById("openFavDrawerBtn").addEventListener("click", openFavDrawer);
+      document.getElementById("startQuizHeroBtn").addEventListener("click", startScentQuiz);
+      document.getElementById("openQuizModalBtn").addEventListener("click", startScentQuiz);
+
+      // Info Modals (Multilingual)
+      const INFO_MODALS = {
+        about: {
+          ru: { tag: "История Дома", title: "Философия AURA NOIR", body: "<p>Парфюмерный дом <strong>AURA NOIR</strong> создаёт селективные экстракты на стыке французского парфюмерного искусства Грасса и древних традиций Ближнего Востока. Каждая композиция настаивается вручную не менее 90 дней.</p>" },
+          en: { tag: "Our Heritage", title: "Philosophy of AURA NOIR", body: "<p>Maison <strong>AURA NOIR</strong> crafts artisan perfume extracts at the crossroads of French Haute Parfumerie in Grasse and ancient Middle Eastern traditions. Every creation macerates for 90 days before hand-bottling.</p>" },
+          ar: { tag: "تراث الدار", title: "فلسفة دار أورا نوار", body: "<p>تبتكر دار <strong>AURA NOIR</strong> خلاصات عطرية نادرة تجمع بين فن العطور الفرنسي في مدينة غراس والتقاليد العريقة للشرق الأوسط. يتم تعتيق كل تركيبة يدوياً لمدة لا تقل عن ٩٠ يوماً قبل التعبئة.</p>" }
+        },
+        delivery: {
+          ru: { tag: "Сервис", title: "Доставка и примерка ароматов", body: "<p>• Экспресс-доставка с консьержем в день заказа.<br>• К каждому флакону прилагается пробник 2 мл, чтобы вы могли разносить аромат на коже до вскрытия основной коробки.</p>" },
+          en: { tag: "Concierge Service", title: "Shipping & Try-Before-You-Open", body: "<p>• Express courier delivery worldwide.<br>• Every full-size flacon includes a complimentary 2 ml sample vial so you can experience the scent on your skin before unsealing the main box.</p>" },
+          ar: { tag: "خدمة الكونسيرج", title: "الشحن الفاخر وتجربة العطر", body: "<p>• توصيل سريع ومجاني في عبوة هدايا فاخرة مختومة بالشمع.<br>• يُرفق مع كل زجاجة عينة مجانية بحجم ٢ مل لتجربة العطر على بشرتك قبل فتح العلبة الرئيسية.</p>" }
+        },
+        samples: {
+          ru: { tag: "Знакомство", title: "Discovery Set (6 × 3 мл)", body: "<p>Фирменная шкатулка со всеми 6 ароматами коллекции AURA NOIR в формате спреев по 3 мл. Стоимость набора полностью засчитывается как скидка при покупке полноразмерного флакона.</p>" },
+          en: { tag: "Discovery", title: "Discovery Coffret (6 × 3 ml)", body: "<p>A luxury lacquered box featuring all 6 creations of AURA NOIR in 3 ml atomizer vials. The price of the Discovery Set is redeemable toward your next full-bottle purchase.</p>" },
+          ar: { tag: "مجموعة الاستكشاف", title: "صندوق العينات الفاخر (٦ × ٣ مل)", body: "<p>علبة فاخرة تضم جميع عطور مجموعة أورا نوار الستة بحجم ٣ مل لكل عطر، مع قسيمة خصم بقيمة المجموعة عند شرائك لأي زجاجة بالحجم الكامل.</p>" }
+        },
+        contacts: {
+          ru: { tag: "Бутики", title: "Флагманские пространства", body: "<p>• <strong>Москва:</strong> ул. Малая Бронная, 24<br>• <strong>Париж:</strong> 218 Rue Saint-Honoré<br>• <strong>Дубай:</strong> The Dubai Mall, Fashion Avenue</p>" },
+          en: { tag: "Boutiques", title: "Flagship Spaces", body: "<p>• <strong>Paris:</strong> 218 Rue Saint-Honoré<br>• <strong>Dubai:</strong> The Dubai Mall, Fashion Avenue<br>• <strong>Moscow:</strong> Malaya Bronnaya, 24</p>" },
+          ar: { tag: "الفروع والبوتيكات", title: "بوتيكات أورا نوار", body: "<p>• <strong>دبي:</strong> دبي مول — فاشن أفنيو<br>• <strong>الرياض:</strong> سنتريا مول<br>• <strong>باريس:</strong> شارع سانت أونوريه ٢١٨</p>" }
+        }
+      };
+
+      document.getElementById("aboutBrandBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const m = INFO_MODALS.about[currentLang];
+        openGenericModal(m.tag, m.title, m.body);
+      });
+
+      document.getElementById("deliveryInfoBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const m = INFO_MODALS.delivery[currentLang];
+        openGenericModal(m.tag, m.title, m.body);
+      });
+
+      document.getElementById("sampleSetBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const m = INFO_MODALS.samples[currentLang];
+        openGenericModal(m.tag, m.title, m.body);
+      });
+
+      document.getElementById("contactsModalBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const m = INFO_MODALS.contacts[currentLang];
+        openGenericModal(m.tag, m.title, m.body);
+      });
+
+      // Mobile Menu
+      document.getElementById("menuToggleBtn").addEventListener("click", () => {
+        document.getElementById("navLinks").classList.toggle("active");
+      });
+
+      // Newsletter
+      document.getElementById("newsletterForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        showToast(I18N[currentLang].toastSubscribed);
+        e.target.reset();
+      });
+
+      // INITIALIZE WITH SAVED OR DEFAULT LANGUAGE
+      setLanguage(currentLang);
+    </script>
+  </body>
+</html>
