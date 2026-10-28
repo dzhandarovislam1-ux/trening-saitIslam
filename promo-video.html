@@ -1629,6 +1629,15 @@
 
       triggerStep(0);
       requestAnimationFrame(tick);
+
+      // Защита демо-видео от копирования
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+      document.addEventListener("keydown", (e) => {
+        const k = e.key.toLowerCase();
+        if (e.key === "F12" || (e.ctrlKey && (k === "u" || k === "s" || k === "г" || k === "ы")) || (e.ctrlKey && e.shiftKey && (k === "i" || k === "j" || k === "c"))) {
+          e.preventDefault();
+        }
+      });
     </script>
   </body>
 </html>

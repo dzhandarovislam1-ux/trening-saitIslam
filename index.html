@@ -58,10 +58,42 @@
         font-family: var(--font-sans);
         line-height: 1.6;
         overflow-x: hidden;
+        user-select: none;
+        -webkit-user-select: none;
         background-image:
           radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.08), transparent 35%),
           radial-gradient(circle at 85% 30%, rgba(200, 138, 75, 0.06), transparent 35%),
           radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.05), transparent 40%);
+      }
+
+      img {
+        -webkit-user-drag: none;
+        user-drag: none;
+      }
+
+      /* DEMO PROTECTION WATERMARK */
+      .demo-watermark {
+        position: fixed;
+        bottom: 18px;
+        left: 18px;
+        z-index: 1500;
+        padding: 8px 14px;
+        border-radius: 6px;
+        background: rgba(12, 10, 8, 0.88);
+        border: 1px solid rgba(212, 175, 55, 0.45);
+        color: var(--gold-light);
+        font-size: 11px;
+        letter-spacing: 1px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .demo-watermark i {
+        color: var(--gold);
       }
 
       a {
@@ -1694,6 +1726,12 @@
       <span id="toastText"></span>
     </div>
 
+    <!-- DEMO PROTECTION WATERMARK (УДАЛИТЬ ПОСЛЕ ПРОДАЖИ) -->
+    <div class="demo-watermark" id="demoWatermark">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>PROTECTED DEMO • ЗАЩИЩЁННАЯ ДЕМО-ВЕРСИЯ</span>
+    </div>
+
     <!-- JAVASCRIPT MULTILINGUAL LOGIC -->
     <script>
       // CURRENT LANGUAGE STATE ('ru' | 'en' | 'ar')
@@ -3106,6 +3144,47 @@
 
       // INITIALIZE WITH SAVED OR DEFAULT LANGUAGE
       setLanguage(currentLang);
+
+      // =========================================================================
+      // ЗАЩИТА ОТ КОПИРОВАНИЯ ДО ПРОДАЖИ (УДАЛИТЬ ЭТОТ БЛОК ПОСЛЕ ОПЛАТЫ КЛИЕНТОМ)
+      // =========================================================================
+      const ENABLE_DEMO_PROTECTION = true;
+
+      if (ENABLE_DEMO_PROTECTION) {
+        const protectMsgs = {
+          ru: "🔒 Демо-версия защищена от копирования. Для покупки исходного кода свяжитесь с автором.",
+          en: "🔒 This demo is copy-protected. Contact the developer to purchase the source code.",
+          ar: "🔒 هذه النسخة التجريبية محمية ضد النسخ. تواصل مع المطور لشراء الكود الكامل."
+        };
+
+        // 1. Запрет правой кнопки мыши
+        document.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          showToast(protectMsgs[currentLang] || protectMsgs.ru);
+        });
+
+        // 2. Запрет перетаскивания и копирования текста
+        document.addEventListener("dragstart", (e) => e.preventDefault());
+        document.addEventListener("copy", (e) => {
+          e.preventDefault();
+          showToast(protectMsgs[currentLang] || protectMsgs.ru);
+        });
+
+        // 3. Запрет горячих клавиш сохранения и просмотра кода (F12, Ctrl+S, Ctrl+U, Ctrl+Shift+I/J/C)
+        document.addEventListener("keydown", (e) => {
+          const key = e.key.toLowerCase();
+          const isDevTools =
+            e.key === "F12" ||
+            (e.ctrlKey && e.shiftKey && (key === "i" || key === "j" || key === "c" || key === "и" || key === "о" || key === "с")) ||
+            (e.ctrlKey && (key === "u" || key === "s" || key === "p" || key === "г" || key === "ы" || key === "з"));
+
+          if (isDevTools) {
+            e.preventDefault();
+            showToast(protectMsgs[currentLang] || protectMsgs.ru);
+            return false;
+          }
+        });
+      }
     </script>
   </body>
 </html>
