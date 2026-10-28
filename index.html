@@ -1381,6 +1381,19 @@
         color: var(--text-muted);
       }
 
+      /* SCROLL REVEAL ANIMATIONS */
+      .reveal {
+        opacity: 0;
+        transform: translateY(38px) scale(0.98);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
       /* RESPONSIVE */
       @media (max-width: 992px) {
         .hero-grid,
@@ -1419,6 +1432,39 @@
       }
 
       @media (max-width: 576px) {
+        .container {
+          width: calc(100% - 24px);
+        }
+        .nav {
+          height: 68px;
+          gap: 8px;
+        }
+        .nav-links {
+          top: 68px;
+        }
+        .logo-title {
+          font-size: 18px;
+          letter-spacing: 2px;
+          white-space: nowrap;
+        }
+        .logo-sub {
+          display: none;
+        }
+        .nav-actions {
+          gap: 6px;
+        }
+        .lang-switcher {
+          padding: 2px;
+        }
+        .lang-btn {
+          padding: 5px 8px;
+          font-size: 10px;
+        }
+        .icon-btn {
+          width: 36px;
+          height: 36px;
+          font-size: 13px;
+        }
         .products-grid,
         .families-grid,
         .journal-grid,
@@ -1429,8 +1475,11 @@
         .quiz-banner {
           padding: 32px 22px;
         }
-        .logo-title {
-          font-size: 22px;
+        .demo-watermark {
+          font-size: 9px;
+          padding: 6px 10px;
+          bottom: 10px;
+          left: 10px;
         }
       }
     </style>
@@ -1440,12 +1489,11 @@
     <!-- PROMO BAR -->
     <div class="promo-bar" id="promoBarText"></div>
 
-    <!-- HEADER -->
+      <!-- HEADER -->
     <header class="header">
       <div class="container nav">
         <a href="#" class="logo">
           <span class="logo-title">AURA NOIR</span>
-          <span class="logo-sub" id="logoSub">Maison de Parfum • Paris</span>
         </a>
 
         <nav class="nav-links" id="navLinks">
@@ -1485,7 +1533,7 @@
       <!-- HERO SECTION -->
       <section class="hero">
         <div class="container hero-grid">
-          <div>
+          <div class="reveal">
             <div class="hero-eyebrow">
               <i class="fa-solid fa-sparkles"></i>
               <span id="heroEyebrow"></span>
@@ -1519,7 +1567,7 @@
             </div>
           </div>
 
-          <div class="hero-Showcase">
+          <div class="hero-Showcase reveal" style="transition-delay: 0.15s;">
             <div class="hero-image-frame">
               <img
                 src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
@@ -1537,7 +1585,7 @@
       <!-- OLFACTORY FAMILIES -->
       <section class="section" id="families">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header reveal">
             <div>
               <span class="section-subtitle" id="familiesSub"></span>
               <h2 class="section-title" id="familiesTitle"></h2>
@@ -1554,7 +1602,7 @@
       <!-- CATALOG SECTION -->
       <section class="section" id="catalog">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header reveal">
             <div>
               <span class="section-subtitle" id="catalogSub"></span>
               <h2 class="section-title" id="catalogTitle"></h2>
@@ -1562,7 +1610,7 @@
           </div>
 
           <!-- FILTERS & SEARCH -->
-          <div class="catalog-controls">
+          <div class="catalog-controls reveal">
             <div class="filter-group" id="categoryFilters">
               <!-- Populated via JS -->
             </div>
@@ -1591,7 +1639,7 @@
       <!-- INTERACTIVE SCENT QUIZ SECTION -->
       <section class="section" id="quizSection">
         <div class="container">
-          <div class="quiz-banner">
+          <div class="quiz-banner reveal">
             <div>
               <span class="section-subtitle" id="quizSub"></span>
               <h2 id="quizBannerTitle"></h2>
@@ -1612,7 +1660,7 @@
       <!-- JOURNAL / ARTICLES SECTION -->
       <section class="section" id="journal">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header reveal">
             <div>
               <span class="section-subtitle" id="journalSub"></span>
               <h2 class="section-title" id="journalTitle"></h2>
@@ -1629,11 +1677,10 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
-        <div class="footer-grid">
-          <div>
+        <div class="footer-grid reveal">
+        <div>
             <div class="logo" style="margin-bottom: 16px;">
               <span class="logo-title">AURA NOIR</span>
-              <span class="logo-sub" id="footerLogoSub">Maison de Parfum • Paris</span>
             </div>
             <p style="font-size: 13px; color: var(--text-muted); max-width: 300px;" id="footerAboutText"></p>
           </div>
@@ -2393,6 +2440,25 @@
         setTimeout(() => toast.classList.remove("active"), 3000);
       }
 
+      // SCROLL REVEAL OBSERVER
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      function observeRevealElements() {
+        document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+          revealObserver.observe(el);
+        });
+      }
+
       // APPLY LANGUAGE TO ENTIRE PAGE
       function setLanguage(lang) {
         currentLang = lang;
@@ -2410,8 +2476,6 @@
 
         // Static texts
         document.getElementById("promoBarText").textContent = t.promoBar;
-        document.getElementById("logoSub").textContent = t.logoSub;
-        document.getElementById("footerLogoSub").textContent = t.logoSub;
 
         document.getElementById("navCatalog").textContent = t.navCatalog;
         document.getElementById("navFamilies").textContent = t.navFamilies;
@@ -2473,14 +2537,15 @@
         renderFilterButtons();
         renderCatalog();
         renderJournal();
+        observeRevealElements();
       }
 
       // RENDER OLFACTORY FAMILIES
       function renderFamilies() {
         const grid = document.getElementById("familiesGrid");
         grid.innerHTML = FAMILIES_DATA.map(
-          (f) => `
-          <div class="family-card" data-family="${f.key}" style="--bg-img: url('${f.img}');">
+          (f, idx) => `
+          <div class="family-card reveal" data-family="${f.key}" style="--bg-img: url('${f.img}'); transition-delay: ${idx * 0.08}s;">
             <h3>${f.title[currentLang]}</h3>
             <p>${f.desc[currentLang]}</p>
           </div>
@@ -2497,6 +2562,7 @@
             showToast(`${I18N[currentLang].toastFamilyFilter} ${famObj.filterLabel[currentLang]}`);
           });
         });
+        observeRevealElements();
       }
 
       // RENDER FILTER BUTTONS
@@ -2543,11 +2609,11 @@
         }
 
         container.innerHTML = list
-          .map((p) => {
+          .map((p, idx) => {
             const isFav = favorites.has(p.id);
             const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey);
             return `
-            <article class="product-card">
+            <article class="product-card reveal" style="transition-delay: ${(idx % 3) * 0.08}s;">
               <div class="product-img-wrap" data-open-id="${p.id}">
                 <div class="product-badges">
                   <span class="tag-badge">${p.badge[currentLang]}</span>
@@ -2584,6 +2650,7 @@
           `;
           })
           .join("");
+        observeRevealElements();
       }
 
       // RENDER JOURNAL
@@ -2591,8 +2658,8 @@
         const t = I18N[currentLang];
         const arrowIcon = t.dir === "rtl" ? "fa-arrow-left" : "fa-arrow-right";
         document.getElementById("journalContainer").innerHTML = ARTICLES.map(
-          (a) => `
-          <article class="journal-card" data-article-id="${a.id}">
+          (a, idx) => `
+          <article class="journal-card reveal" data-article-id="${a.id}" style="transition-delay: ${idx * 0.1}s;">
             <img src="${a.image}" alt="${a.title[currentLang]}" class="journal-img" />
             <div class="journal-body">
               <span class="journal-tag">${a.tag[currentLang]}</span>
@@ -2603,6 +2670,7 @@
           </article>
         `
         ).join("");
+        observeRevealElements();
       }
 
       // PRODUCT PYRAMID MODAL
