@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AURA NOIR — Дом Высокой Парфюмерии</title>
+    <title>SOHAIB OUD — صهيب للعود والعنبر والعطور | Дом Уда, Амбры и Парфюмерии</title>
     <!-- Google Fonts (Cyrillic, Latin & Arabic Amiri/Cairo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -969,6 +969,118 @@
         gap: 8px;
       }
 
+      /* BOUTIQUES & LOCATION SECTION */
+      .boutiques-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 30px;
+        align-items: stretch;
+      }
+
+      .boutique-branches {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      .branch-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: var(--transition);
+      }
+
+      .branch-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-4px);
+      }
+
+      .branch-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .branch-card h3 {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        color: var(--gold-light);
+      }
+
+      .branch-card p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .map-showcase-card {
+        background: linear-gradient(145deg, #17130e, #0d0b09);
+        border: 1px solid var(--border-hover);
+        border-radius: 10px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .map-embed-wrap {
+        width: 100%;
+        height: 220px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        position: relative;
+        background: #0b0907;
+      }
+
+      .map-embed-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        filter: grayscale(0.3) invert(0.9) contrast(1.1) hue-rotate(180deg);
+      }
+
+      .contact-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .contact-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 14px;
+        border-radius: 6px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid var(--border);
+        font-size: 12px;
+        color: var(--text);
+        transition: var(--transition);
+      }
+
+      .contact-pill:hover {
+        border-color: var(--gold);
+        color: var(--gold-light);
+        transform: translateY(-2px);
+      }
+
+      .contact-pill i {
+        color: var(--gold);
+      }
+
       /* FOOTER */
       .footer {
         background: #050403;
@@ -1397,7 +1509,8 @@
       @media (max-width: 992px) {
         .hero-grid,
         .quiz-banner,
-        .product-modal-grid {
+        .product-modal-grid,
+        .boutiques-grid {
           grid-template-columns: 1fr;
         }
         .products-grid,
@@ -1468,7 +1581,8 @@
         .families-grid,
         .journal-grid,
         .footer-grid,
-        .quiz-options {
+        .quiz-options,
+        .boutique-branches {
           grid-template-columns: 1fr;
         }
         .quiz-banner {
@@ -1492,7 +1606,8 @@
     <header class="header">
       <div class="container nav">
         <a href="#" class="logo">
-          <span class="logo-title">AURA NOIR</span>
+          <span class="logo-title">SOHAIB OUD</span>
+          <span class="logo-sub" id="logoSubText">صهيب للعود والعنبر والعطور • Since 2008</span>
         </a>
 
         <nav class="nav-links" id="navLinks">
@@ -1500,6 +1615,7 @@
           <a href="#families" id="navFamilies"></a>
           <a href="#quizSection" id="navQuiz"></a>
           <a href="#journal" id="navJournal"></a>
+          <a href="#boutiques" id="navBoutiques"></a>
           <a href="#" id="aboutBrandBtn"></a>
         </nav>
 
@@ -1567,7 +1683,7 @@
             <div class="hero-image-frame">
               <img
                 src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
-                alt="Aura Noir Perfume"
+                alt="Sohaib Oud Perfume"
               />
             </div>
             <div class="floating-badge">
@@ -1668,6 +1784,77 @@
           </div>
         </div>
       </section>
+
+      <!-- BOUTIQUES, ADDRESSES & GOOGLE MAPS SECTION -->
+      <section class="section" id="boutiques">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <span class="section-subtitle" id="boutiquesSub"></span>
+              <h2 class="section-title" id="boutiquesTitle"></h2>
+            </div>
+            <div class="contact-pills">
+              <a href="https://sohaiboud.com" target="_blank" rel="noopener noreferrer" class="contact-pill">
+                <i class="fa-solid fa-globe"></i>
+                <span>sohaiboud.com</span>
+              </a>
+              <a href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic" target="_blank" rel="noopener noreferrer" class="contact-pill">
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="pillMapsText">Google Maps</span>
+              </a>
+              <a href="https://wa.me/201112244334" target="_blank" rel="noopener noreferrer" class="contact-pill">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>+20 111 224 4334</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="boutiques-grid">
+            <div class="boutique-branches" id="branchesContainer">
+              <!-- Populated via JS -->
+            </div>
+
+            <div class="map-showcase-card reveal">
+              <div>
+                <span class="branch-badge">
+                  <i class="fa-solid fa-compass"></i>
+                  <span id="mapCardBadge"></span>
+                </span>
+                <h3 style="font-family: var(--font-serif); font-size: 28px; color: var(--gold-light); margin: 8px 0;" id="mapCardTitle"></h3>
+                <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;" id="mapCardDesc"></p>
+              </div>
+
+              <div class="map-embed-wrap">
+                <iframe
+                  title="Sohaib Oud Location Map"
+                  src="https://www.google.com/maps?q=Sohaib+for+Perfumes+And+oud+Nasr+City+Cairo&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a
+                  href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-gold"
+                  style="width: 100%;"
+                  id="openGoogleMapsBtn"
+                ></a>
+                <a
+                  href="https://sohaiboud.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-outline"
+                  style="width: 100%;"
+                  id="openOfficialSiteBtn"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -1676,9 +1863,24 @@
         <div class="footer-grid reveal">
         <div>
             <div class="logo" style="margin-bottom: 16px;">
-              <span class="logo-title">AURA NOIR</span>
+              <span class="logo-title">SOHAIB OUD</span>
+              <span class="logo-sub" style="display: block; margin-top: 6px;">صهيب للعود والعنبر والعطور</span>
             </div>
             <p style="font-size: 13px; color: var(--text-muted); max-width: 300px;" id="footerAboutText"></p>
+            <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+              <a href="https://sohaiboud.com" target="_blank" rel="noopener noreferrer" class="icon-btn" title="sohaiboud.com">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+              <a href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Google Maps">
+                <i class="fa-solid fa-location-dot"></i>
+              </a>
+              <a href="https://wa.me/201112244334" target="_blank" rel="noopener noreferrer" class="icon-btn" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="https://www.instagram.com/sohaiboud.store" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
           </div>
 
           <div>
@@ -1786,31 +1988,32 @@
       const I18N = {
         ru: {
           dir: "ltr",
-          title: "AURA NOIR — Дом Высокой Парфюмерии",
-          promoBar: "✦ Бесплатная доставка и набор из 3-х сэмплов к каждому заказу от 15 000 ₽ ✦",
-          logoSub: "Дом Парфюмерии • Париж",
+          title: "SOHAIB OUD — Дом Уда, Амбры и Высокой Парфюмерии | sohaiboud.com",
+          promoBar: "✦ Официальный бутик SOHAIB OUD (sohaiboud.com) • Натуральный уд, амбра и восточная парфюмерия с 2008 года ✦",
+          logoSub: "Дом Уда и Парфюмерии • с 2008",
           navCatalog: "Коллекция",
           navFamilies: "Семейства нот",
           navQuiz: "Подбор аромата",
           navJournal: "Журнал",
+          navBoutiques: "Бутики и Карта",
           navAbout: "О Доме",
-          heroEyebrow: "Эксклюзивная нишевая коллекция 2026",
-          heroTitle: "Искусство <em>невидимой</em> роскоши на вашей коже",
-          heroDesc: "Парфюмерный дом <strong>AURA NOIR</strong> создаёт редкие композиции из натуральных абсолютов Грасса, дикого уда, амбры и редких специй. Каждый флакон — история, рассказанная без слов.",
+          heroEyebrow: "Дом Восточной и Нишевой Парфюмерии • Основан в 2008",
+          heroTitle: "Искусство <em>королевского</em> уда и амбры на вашей коже",
+          heroDesc: "Парфюмерный дом <strong>SOHAIB OUD (صهيب للعود والعنبر والعطور)</strong> с 2008 года создаёт редкие композиции из дикого уда, чистой амбры, белого мускуса и благородных восточно-французских масел.",
           heroBtnCatalog: 'Смотреть коллекцию <i class="fa-solid fa-arrow-right"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Подобрать свой аромат',
           statLabel1: "Концентрация масел Extrait",
           statVal2: "48 ч",
           statLabel2: "Стойкость шлейфа",
-          statLabel3: "Ручной розлив в Грассе",
-          heroBadgeSub: "Аромат сезона",
+          statLabel3: "Натуральный уд и амбра",
+          heroBadgeSub: "Бестселлер Дома Sohaib",
           familiesSub: "Ольфакторная палитра",
           familiesTitle: "Выберите настроение",
-          familiesHint: "Нажмите на семейство ароматов, чтобы отфильтровать парфюмерные композиции в нашем каталоге.",
-          catalogSub: "Бутик",
+          familiesHint: "Нажмите на семейство ароматов, чтобы отфильтровать парфюмерные композиции SOHAIB OUD в нашем каталоге.",
+          catalogSub: "Бутик Sohaib Oud",
           catalogTitle: "Парфюмерная коллекция",
           filterAll: "Все ароматы",
-          searchPlaceholder: "Поиск по названию или ноте (уд, роза)...",
+          searchPlaceholder: "Поиск по названию или ноте (уд, амбра, мускус)...",
           sortPopular: "По популярности",
           sortAsc: "Сначала дешевле",
           sortDesc: "Сначала дороже",
@@ -1819,24 +2022,32 @@
           addToCartBtn: "В корзину",
           noProductsTitle: "Ароматы не найдены",
           noProductsDesc: "Попробуйте сбросить фильтры или ввести другую ноту.",
-          quizSub: "Персональный сомелье",
+          quizSub: "Персональный сомелье Sohaib Oud",
           quizBannerTitle: "Не знаете, какой парфюм выбрать?",
-          quizBannerDesc: "Ответьте на 2 вопроса о ваших предпочтениях и атмосфере, и наш алгоритм подберёт идеальный нишевый аромат из коллекции AURA NOIR.",
+          quizBannerDesc: "Ответьте на 2 вопроса о ваших предпочтениях и атмосфере, и наш алгоритм подберёт идеальный аромат из коллекции SOHAIB OUD.",
           openQuizBtn: '<i class="fa-solid fa-compass"></i> Запустить тест подбора',
           journalSub: "Парфюмерный журнал",
           journalTitle: "Секреты высокой парфюмерии",
           readArticle: "Читать статью",
-          footerAboutText: "Авторская селективная парфюмерия, созданная на стыке вековых традиций Франции и мистического Востока.",
+          boutiquesSub: "Официальные адреса и локация",
+          boutiquesTitle: "Бутики SOHAIB OUD и Карта",
+          pillMapsText: "Открыть Google Maps",
+          mapCardBadge: "Флагманская локация • Google Maps",
+          mapCardTitle: "Посетите бутик SOHAIB OUD",
+          mapCardDesc: "Откройте точную геолокацию нашего бутика в Google Картах для построения маршрута или перейдите на официальный сайт sohaiboud.com для онлайн-заказа и связи через WhatsApp.",
+          openGoogleMapsBtn: '<i class="fa-solid fa-location-dot"></i> Открыть локацию в Google Maps',
+          openOfficialSiteBtn: '<i class="fa-solid fa-globe"></i> Официальный сайт sohaiboud.com',
+          footerAboutText: "Дом уда, амбры, мускуса и авторской парфюмерии SOHAIB OUD (основан в 2008 г.). Представлен в Египте (Каир, Наср-Сити, Новый Каир, Мансура), ОАЭ (Дубай) и Малайзии.",
           footerNavHeading: "Навигация",
           footerClientHeading: "Покупателям",
           deliveryLink: "Доставка и оплата",
           sampleSetLink: "Заказать Discovery Set",
-          contactsLink: "Бутики и контакты",
-          footerClubHeading: "Закрытый клуб",
+          contactsLink: "Все адреса и контакты",
+          footerClubHeading: "Закрытый клуб Sohaib",
           footerClubDesc: "Подпишитесь, чтобы получать приглашения на закрытые презентации и скидку 10% на первый заказ.",
           newsletterPlaceholder: "Ваш Email...",
-          footerCopyright: "© 2026 AURA NOIR Parfums. Все права защищены.",
-          footerAddresses: "Москва, ул. Малая Бронная, 24 • Париж • Дубай",
+          footerCopyright: "© 2008–2026 SOHAIB OUD (sohaiboud.com). Все права защищены.",
+          footerAddresses: "Каир (Наср-Сити, 76 El Gamea St. • Пятое поселение) • Мансура • Дубай (ОАЭ) • Малайзия",
           // Modal & Drawer strings
           pyramidTitle: "Ольфакторная пирамида аромата",
           topNotesLabel: "▲ Верхние ноты:",
@@ -1858,8 +2069,8 @@
           toastAddedCart: "добавлен в корзину",
           toastAddedFav: "сохранён в избранное",
           toastRemovedFav: "удалён из избранного",
-          toastOrderSuccess: "Заказ успешно оформлен! Наш консьерж свяжется с вами.",
-          toastSubscribed: "Добро пожаловать в закрытый клуб AURA NOIR!",
+          toastOrderSuccess: "Заказ успешно оформлен! Наш консьерж SOHAIB OUD свяжется с вами.",
+          toastSubscribed: "Добро пожаловать в закрытый клуб SOHAIB OUD!",
           toastFamilyFilter: "Выбрано семейство:",
           quizResultSub: "Ваш идеальный выбор",
           quizResultPrefix: "Мы подобрали для вас:",
@@ -1868,31 +2079,32 @@
 
         en: {
           dir: "ltr",
-          title: "AURA NOIR — Maison de Haute Parfumerie",
-          promoBar: "✦ Complimentary shipping & 3 luxury samples with every order over $160 ✦",
-          logoSub: "Maison de Parfum • Paris",
+          title: "SOHAIB OUD — House of Oud, Amber & Perfumes | sohaiboud.com",
+          promoBar: "✦ Official SOHAIB OUD Boutique (sohaiboud.com) • Pure Oud, Amber & Luxury Perfumes Since 2008 ✦",
+          logoSub: "House of Oud & Perfumes • Since 2008",
           navCatalog: "Collection",
           navFamilies: "Olfactory Families",
           navQuiz: "Scent Finder",
           navJournal: "Journal",
-          navAbout: "The Maison",
-          heroEyebrow: "Exclusive Niche Collection 2026",
-          heroTitle: "The Art of <em>Invisible</em> Luxury on Your Skin",
-          heroDesc: "Perfume House <strong>AURA NOIR</strong> crafts rare compositions from natural Grasse absolutes, wild oud, amber, and precious spices. Every flacon is a story told without words.",
+          navBoutiques: "Boutiques & Map",
+          navAbout: "Our Heritage",
+          heroEyebrow: "House of Oriental & Niche Perfumery • Est. 2008",
+          heroTitle: "The Art of <em>Royal Oud</em> & Amber on Your Skin",
+          heroDesc: "Founded in 2008, <strong>SOHAIB OUD (صهيب للعود والعنبر والعطور)</strong> crafts rare compositions from wild agarwood oud, royal amber, pure musk, and French-Oriental perfume oils.",
           heroBtnCatalog: 'Explore Collection <i class="fa-solid fa-arrow-right"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Find Your Signature Scent',
           statLabel1: "Extrait Oil Concentration",
           statVal2: "48 h",
           statLabel2: "Sillage & Longevity",
-          statLabel3: "Hand-poured in Grasse",
-          heroBadgeSub: "Scent of the Season",
+          statLabel3: "Pure Natural Oud & Amber",
+          heroBadgeSub: "Sohaib Signature Scent",
           familiesSub: "Olfactory Palette",
           familiesTitle: "Discover by Mood",
-          familiesHint: "Select a fragrance family below to filter creations in our boutique catalog.",
-          catalogSub: "Boutique",
-          catalogTitle: "Parfum Collection",
+          familiesHint: "Select a fragrance family below to filter SOHAIB OUD creations in our boutique catalog.",
+          catalogSub: "Sohaib Oud Boutique",
+          catalogTitle: "Parfum & Oud Collection",
           filterAll: "All Fragrances",
-          searchPlaceholder: "Search by name or note (oud, rose)...",
+          searchPlaceholder: "Search by name or note (oud, amber, musk)...",
           sortPopular: "Most Popular",
           sortAsc: "Price: Low to High",
           sortDesc: "Price: High to Low",
@@ -1901,24 +2113,32 @@
           addToCartBtn: "Add to Bag",
           noProductsTitle: "No fragrances found",
           noProductsDesc: "Try resetting filters or searching for another ingredient.",
-          quizSub: "Personal Sommelier",
+          quizSub: "Sohaib Oud Sommelier",
           quizBannerTitle: "Unsure Which Creation Suits You?",
-          quizBannerDesc: "Answer 2 brief questions about your mood and occasion, and our algorithm will curate your ideal niche fragrance from AURA NOIR.",
+          quizBannerDesc: "Answer 2 brief questions about your mood and occasion, and our algorithm will curate your ideal fragrance from SOHAIB OUD.",
           openQuizBtn: '<i class="fa-solid fa-compass"></i> Start Scent Quiz',
           journalSub: "Perfume Journal",
           journalTitle: "Secrets of Haute Parfumerie",
           readArticle: "Read Article",
-          footerAboutText: "Artisanal niche perfumery born at the crossroads of French heritage and the mystical Orient.",
+          boutiquesSub: "Official Branches & Location",
+          boutiquesTitle: "SOHAIB OUD Boutiques & Map",
+          pillMapsText: "Open Google Maps",
+          mapCardBadge: "Flagship Pin • Google Maps",
+          mapCardTitle: "Visit SOHAIB OUD Boutique",
+          mapCardDesc: "Open our exact storefront pin on Google Maps for turn-by-turn directions, or visit our official website sohaiboud.com to order online and chat via WhatsApp.",
+          openGoogleMapsBtn: '<i class="fa-solid fa-location-dot"></i> Open Location in Google Maps',
+          openOfficialSiteBtn: '<i class="fa-solid fa-globe"></i> Official Website sohaiboud.com',
+          footerAboutText: "SOHAIB OUD for Oud, Amber & Perfumes (Est. 2008). Operating flagship branches across Egypt (Cairo Nasr City, New Cairo, Mansoura), UAE (Dubai), and Malaysia.",
           footerNavHeading: "Navigation",
           footerClientHeading: "Client Care",
           deliveryLink: "Shipping & Concierge",
           sampleSetLink: "Order Discovery Set",
-          contactsLink: "Boutiques & Contacts",
-          footerClubHeading: "Private Club",
+          contactsLink: "All Branches & Contacts",
+          footerClubHeading: "Sohaib Private Club",
           footerClubDesc: "Subscribe to receive invitations to private launches and 10% off your first creation.",
           newsletterPlaceholder: "Your Email...",
-          footerCopyright: "© 2026 AURA NOIR Parfums. All rights reserved.",
-          footerAddresses: "Paris, Rue Saint-Honoré • Dubai Mall • Moscow",
+          footerCopyright: "© 2008–2026 SOHAIB OUD (sohaiboud.com). All rights reserved.",
+          footerAddresses: "Cairo (76 El Gamea St., Nasr City • 5th Settlement) • Mansoura • Dubai (UAE) • Malaysia",
           // Modal & Drawer strings
           pyramidTitle: "Olfactory Pyramid",
           topNotesLabel: "▲ Top Notes:",
@@ -1940,8 +2160,8 @@
           toastAddedCart: "added to your bag",
           toastAddedFav: "saved to favorites",
           toastRemovedFav: "removed from favorites",
-          toastOrderSuccess: "Order placed! Our concierge will contact you shortly.",
-          toastSubscribed: "Welcome to the AURA NOIR Private Club!",
+          toastOrderSuccess: "Order placed! Our SOHAIB OUD concierge will contact you shortly.",
+          toastSubscribed: "Welcome to the SOHAIB OUD Private Club!",
           toastFamilyFilter: "Filtered by family:",
           quizResultSub: "Your Signature Match",
           quizResultPrefix: "Curated for you:",
@@ -1950,31 +2170,32 @@
 
         ar: {
           dir: "rtl",
-          title: "أورا نوار — دار العطور الفاخرة | AURA NOIR",
-          promoBar: "✦ شحن مجاني ومجموعة من ٣ عينات فاخرة مع كل طلب ✦",
-          logoSub: "دار العطور الراقية • باريس",
+          title: "صهيب للعود والعنبر والعطور — SOHAIB OUD | sohaiboud.com",
+          promoBar: "✦ المتجر الرسمي لدار صهيب للعود والعنبر والعطور (sohaiboud.com) • أصالة العود والعطور الفاخرة منذ ٢٠٠٨ ✦",
+          logoSub: "صهيب للعود والعنبر والعطور • منذ ٢٠٠٨",
           navCatalog: "المجموعة",
           navFamilies: "العائلات العطرية",
           navQuiz: "مستشار العطور",
           navJournal: "المجلة",
+          navBoutiques: "الفروع والخريطة",
           navAbout: "عن الدار",
-          heroEyebrow: "مجموعة العطور النيش الحصرية ٢٠٢٦",
-          heroTitle: "فن الفخامة <em>الخفية</em> على بشرتك",
-          heroDesc: "تبتكر دار <strong>AURA NOIR</strong> تركيبات نادرة من خلاصات غراس الطبيعية، والعود الكمبودي الفاخر، والعنبر والتوابل الثمينة. كل زجاجة تروي حكاية ساحرة بلا كلمات.",
+          heroEyebrow: "دار صهيب للعود والعنبر والعطور • تأسست عام ٢٠٠٨",
+          heroTitle: "أصالة <em>العود الملكي</em> والعنبر الفاخر على بشرتك",
+          heroDesc: "تبتكر دار <strong>صهيب للعود والعنبر والعطور (SOHAIB OUD)</strong> منذ عام ٢٠٠٨ أرقى تركيبات العود الطبيعي، ودهن العود الملكي، والعنبر الصافي، والمسك والعطور الشرقية والفرنسية الفاخرة.",
           heroBtnCatalog: 'استكشف المجموعة <i class="fa-solid fa-arrow-left"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> اكتشف عطرك المثالي',
           statLabel1: "تركيز الزيوت العطرية النقية",
           statVal2: "٤٨ ساعة",
           statLabel2: "ثبات وفوحان استثنائي",
-          statLabel3: "تعبئة يدوية في غراس",
-          heroBadgeSub: "عطر الموسم",
+          statLabel3: "عود وعنبر طبيعي ١٠٠٪",
+          heroBadgeSub: "الأكثر مبيعاً لدى صهيب",
           familiesSub: "لوحة النفحات العطرية",
           familiesTitle: "اختر حسب مزاجك",
-          familiesHint: "اضغط على العائلة العطرية لتصفية العطور في المتجر.",
-          catalogSub: "البوتيك",
-          catalogTitle: "مجموعة العطور الفاخرة",
+          familiesHint: "اضغط على العائلة العطرية لتصفية عطور دار صهيب للعود في المتجر.",
+          catalogSub: "بوتيك صهيب للعود",
+          catalogTitle: "مجموعة العطور والعود الفاخرة",
           filterAll: "جميع العطور",
-          searchPlaceholder: "ابحث بالاسم أو المكونات (عود، ورد، عنبر)...",
+          searchPlaceholder: "ابحث بالاسم أو المكونات (عود، عنبر، مسك، ورد)...",
           sortPopular: "الأكثر رواجاً",
           sortAsc: "السعر: من الأقل للأعلى",
           sortDesc: "السعر: من الأعلى للأقل",
@@ -1983,24 +2204,32 @@
           addToCartBtn: "أضف للسلة",
           noProductsTitle: "لم يتم العثور على عطور",
           noProductsDesc: "جرّب إعادة ضبط الفلاتر أو البحث عن نوتة عطرية أخرى.",
-          quizSub: "خبير العطور الشخصي",
+          quizSub: "خبير عطور صهيب",
           quizBannerTitle: "هل تحتار في اختيار العطر المناسب لك؟",
-          quizBannerDesc: "أجب عن سؤالين حول ذوقك والمناسبة، وسيقوم خبيرنا الرقمي باختيار العطر الأمثل لشخصيتك من مجموعة أورا نوار.",
+          quizBannerDesc: "أجب عن سؤالين حول ذوقك والمناسبة، وسيقوم خبيرنا الرقمي باختيار العطر الأمثل لشخصيتك من مجموعة صهيب للعود والعنبر والعطور.",
           openQuizBtn: '<i class="fa-solid fa-compass"></i> ابدأ اختبار العطور',
           journalSub: "مجلة العطور",
-          journalTitle: "أسرار صناعة العطور الراقية",
+          journalTitle: "أسرار صناعة العطور والعود",
           readArticle: "اقرأ المقال",
-          footerAboutText: "عطور نيش حصرية تمزج بين التراث الفرنسي العريق وسحر الشرق الأصيل.",
+          boutiquesSub: "العناوين الرسمية والموقع الجغرافي",
+          boutiquesTitle: "فروع صهيب للعود والخريطة",
+          pillMapsText: "موقعنا على خرائط جوجل",
+          mapCardBadge: "الموقع الرسمي • Google Maps",
+          mapCardTitle: "تفضّل بزيارة فروع صهيب للعود",
+          mapCardDesc: "افتح الموقع الجغرافي المباشر على خرائط جوجل للوصول إلى الفرع بسهولة، أو تصفّح موقعنا الرسمي sohaiboud.com للطلب المباشر والتواصل عبر واتساب.",
+          openGoogleMapsBtn: '<i class="fa-solid fa-location-dot"></i> افتح الموقع في خرائط جوجل (Google Maps)',
+          openOfficialSiteBtn: '<i class="fa-solid fa-globe"></i> الموقع الرسمي sohaiboud.com',
+          footerAboutText: "دار صهيب للعود والعنبر والعطور (تأسست عام ٢٠٠٨). نقدم أجود أنواع العود الخام ودهن العود والعنبر والمسك والعطور المزجية في مصر والإمارات وماليزيا.",
           footerNavHeading: "روابط سريعة",
           footerClientHeading: "خدمة العملاء",
           deliveryLink: "الشحن والتوصيل الفاخر",
           sampleSetLink: "اطلب مجموعة العينات",
-          contactsLink: "الفروع والتواصل",
-          footerClubHeading: "النادي الخاص",
+          contactsLink: "الفروع وأرقام التواصل",
+          footerClubHeading: "نادي صهيب الخاص",
           footerClubDesc: "اشترك للحصول على دعوات للإصدارات الحصرية وخصم ١٠٪ على طلبك الأول.",
           newsletterPlaceholder: "بريدك الإلكتروني...",
-          footerCopyright: "© ٢٠٢٦ أورا نوار للعطور. جميع الحقوق محفوظة.",
-          footerAddresses: "دبي مول • الرياض • باريس • موسكو",
+          footerCopyright: "© ٢٠٠٨–٢٠٢٦ صهيب للعود والعنبر والعطور (sohaiboud.com). جميع الحقوق محفوظة.",
+          footerAddresses: "القاهرة (مدينة نصر: ٧٦ ش الجامع و ش الطاقة • التجمع الخامس) • المنصورة • دبي (الإمارات) • ماليزيا",
           // Modal & Drawer strings
           pyramidTitle: "الهرم العطري ومكونات العطر",
           topNotesLabel: "▲ مقدمة العطر:",
@@ -2022,14 +2251,62 @@
           toastAddedCart: "تمت إضافته إلى السلة",
           toastAddedFav: "تم حفظه في المفضلة",
           toastRemovedFav: "تمت إزالته من المفضلة",
-          toastOrderSuccess: "تم استلام طلبك بنجاح! سيتواصل معك فريق الكونسيرج قريباً.",
-          toastSubscribed: "أهلاً بك في النادي الخاص لدار أورا نوار!",
+          toastOrderSuccess: "تم استلام طلبك بنجاح! سيتواصل معك فريق صهيب للعود قريباً.",
+          toastSubscribed: "أهلاً بك في النادي الخاص لدار صهيب للعود والعطور!",
           toastFamilyFilter: "تم اختيار العائلة العطرية:",
           quizResultSub: "اختيارنا المثالي لك",
           quizResultPrefix: "العطر الأنسب لشخصيتك:",
           quizRestart: "إعادة الاختبار"
         }
       };
+
+      // OFFICIAL BRANCHES DATA (SOHAIB OUD)
+      const BRANCHES_DATA = [
+        {
+          badge: { ru: "Главный бутик • Каир", en: "Flagship Branch • Cairo", ar: "الفرع الرئيسي • مدينة نصر" },
+          title: { ru: "Каир — Наср-Сити", en: "Cairo — Nasr City", ar: "القاهرة — مدينة نصر" },
+          address: {
+            ru: "76 El Gamea St., El Swesry B, 10-й район (рядом с авторынком) • а также ул. Эль-Така (El-Taka St.), 8-й район, Наср-Сити, Каир.",
+            en: "76 El Gamea St., El Swesry B District, 10th District • & El-Taka St. (next to Farahat Grill), 8th District, Nasr City, Cairo.",
+            ar: "٧٦ شارع الجامع، المشروع السويسري (ب)، الحي العاشر • وفرع شارع الطاقة بجوار كبابجي فرحات، الحي الثامن، مدينة نصر، القاهرة."
+          },
+          phone: "+20 111 224 4334",
+          mapUrl: "https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic"
+        },
+        {
+          badge: { ru: "Бутик • Новый Каир", en: "Boutique • New Cairo", ar: "فرع القاهرة الجديدة" },
+          title: { ru: "Пятое поселение (New Cairo)", en: "New Cairo — 5th Settlement", ar: "التجمع الخامس — سفن ستارز مول" },
+          address: {
+            ru: "Участок 67/68, сервисная зона, 1-й район, внутри ТЦ «Seven Stars Mall», Пятое поселение, Новый Каир.",
+            en: "Plot 67/68, Services Area, 1st District, inside Seven Stars Mall, 5th Settlement, New Cairo.",
+            ar: "القطعة ٦٧/٦٨، منطقة الخدمات، الحي الأول، داخل سفن ستارز مول (Seven Stars Mall)، التجمع الخامس، القاهرة الجديدة."
+          },
+          phone: "+20 111 224 4334",
+          mapUrl: "https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic"
+        },
+        {
+          badge: { ru: "2 филиала • Эль-Мансура", en: "2 Branches • Mansoura", ar: "فرعا المنصورة • الدقهلية" },
+          title: { ru: "Эль-Мансура (Mansoura)", en: "Mansoura Branches", ar: "فروع المنصورة" },
+          address: {
+            ru: "1) ул. Эль-Гомхурия, 68 (напротив стоматологического факультета Университета Мансуры).<br>2) ул. Суэцкого канала, башня Аль-Зухур (рядом с госпиталем Аль-Хайр).",
+            en: "1) 68 El-Gomhoria St., in front of Faculty of Dentistry, Mansoura University.<br>2) Suez Canal St., Al-Zohour Tower, next to Al-Khair Hospital.",
+            ar: "١) ٦٨ شارع الجمهورية، أمام كلية طب الأسنان - جامعة المنصورة.<br>٢) شارع قناة السويس، برج الزهور، بجوار مستشفى الخير."
+          },
+          phone: "+20 109 404 0078 / 050 220 0404",
+          mapUrl: "https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic"
+        },
+        {
+          badge: { ru: "Международная сеть и Онлайн", en: "International & Online", ar: "التواجد الدولي والمتجر الإلكتروني" },
+          title: { ru: "ОАЭ (Дубай), Малайзия и Онлайн", en: "UAE (Dubai), Malaysia & Online", ar: "الإمارات (دبي) وماليزيا والمتجر الرسمي" },
+          address: {
+            ru: "Региональное представительство в ОАЭ и Малайзии. Круглосуточный заказ через официальный сайт <strong>sohaiboud.com</strong> и мобильные приложения Sohaib Oud (iOS / Android).",
+            en: "Regional presence across the UAE and Malaysia. Worldwide ordering 24/7 via <strong>sohaiboud.com</strong> and the official Sohaib Oud mobile apps (App Store & Google Play).",
+            ar: "حضور إقليمي في الإمارات العربية المتحدة وماليزيا، مع شحن دولي وطلب مباشر عبر الموقع الرسمي <strong>sohaiboud.com</strong> وتطبيقات الهواتف الذكية."
+          },
+          phone: "sohaiboud.com • +20 111 224 4334",
+          mapUrl: "https://sohaiboud.com"
+        }
+      ];
 
       // OLFACTORY FAMILIES DATA (MULTILINGUAL)
       const FAMILIES_DATA = [
@@ -2469,11 +2746,13 @@
 
         // Static texts
         document.getElementById("promoBarText").textContent = t.promoBar;
+        document.getElementById("logoSubText").textContent = t.logoSub;
 
         document.getElementById("navCatalog").textContent = t.navCatalog;
         document.getElementById("navFamilies").textContent = t.navFamilies;
         document.getElementById("navQuiz").textContent = t.navQuiz;
         document.getElementById("navJournal").textContent = t.navJournal;
+        document.getElementById("navBoutiques").textContent = t.navBoutiques;
         document.getElementById("aboutBrandBtn").textContent = t.navAbout;
 
         document.getElementById("heroEyebrow").textContent = t.heroEyebrow;
@@ -2507,6 +2786,15 @@
         document.getElementById("journalSub").textContent = t.journalSub;
         document.getElementById("journalTitle").textContent = t.journalTitle;
 
+        document.getElementById("boutiquesSub").textContent = t.boutiquesSub;
+        document.getElementById("boutiquesTitle").textContent = t.boutiquesTitle;
+        document.getElementById("pillMapsText").textContent = t.pillMapsText;
+        document.getElementById("mapCardBadge").textContent = t.mapCardBadge;
+        document.getElementById("mapCardTitle").textContent = t.mapCardTitle;
+        document.getElementById("mapCardDesc").textContent = t.mapCardDesc;
+        document.getElementById("openGoogleMapsBtn").innerHTML = t.openGoogleMapsBtn;
+        document.getElementById("openOfficialSiteBtn").innerHTML = t.openOfficialSiteBtn;
+
         document.getElementById("footerAboutText").textContent = t.footerAboutText;
         document.getElementById("footerNavHeading").textContent = t.footerNavHeading;
         document.getElementById("fLinkCatalog").textContent = t.navCatalog;
@@ -2529,7 +2817,32 @@
         renderFilterButtons();
         renderCatalog();
         renderJournal();
+        renderBranches();
         observeRevealElements();
+      }
+
+      // RENDER BRANCHES (SOHAIB OUD)
+      function renderBranches() {
+        const container = document.getElementById("branchesContainer");
+        if (!container) return;
+        container.innerHTML = BRANCHES_DATA.map(
+          (b, idx) => `
+          <div class="branch-card reveal" style="transition-delay: ${idx * 0.08}s;">
+            <span class="branch-badge">
+              <i class="fa-solid fa-location-dot"></i>
+              ${b.badge[currentLang]}
+            </span>
+            <h3>${b.title[currentLang]}</h3>
+            <p>${b.address[currentLang]}</p>
+            <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px;">
+              <span style="color: var(--gold-light); font-weight: 500;"><i class="fa-solid fa-phone" style="color: var(--gold); margin-inline-end: 6px;"></i>${b.phone}</span>
+              <a href="${b.mapUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--gold); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        `
+        ).join("");
       }
 
       // RENDER OLFACTORY FAMILIES
@@ -3145,24 +3458,96 @@
       // Info Modals (Multilingual)
       const INFO_MODALS = {
         about: {
-          ru: { tag: "История Дома", title: "Философия AURA NOIR", body: "<p>Парфюмерный дом <strong>AURA NOIR</strong> создаёт селективные экстракты на стыке французского парфюмерного искусства Грасса и древних традиций Ближнего Востока. Каждая композиция настаивается вручную не менее 90 дней.</p>" },
-          en: { tag: "Our Heritage", title: "Philosophy of AURA NOIR", body: "<p>Maison <strong>AURA NOIR</strong> crafts artisan perfume extracts at the crossroads of French Haute Parfumerie in Grasse and ancient Middle Eastern traditions. Every creation macerates for 90 days before hand-bottling.</p>" },
-          ar: { tag: "تراث الدار", title: "فلسفة دار أورا نوار", body: "<p>تبتكر دار <strong>AURA NOIR</strong> خلاصات عطرية نادرة تجمع بين فن العطور الفرنسي في مدينة غراس والتقاليد العريقة للشرق الأوسط. يتم تعتيق كل تركيبة يدوياً لمدة لا تقل عن ٩٠ يوماً قبل التعبئة.</p>" }
+          ru: {
+            tag: "История Дома • С 2008 года",
+            title: "Философия SOHAIB OUD (صهيب للعود والعنبر والعطور)",
+            body: `<p>Парфюмерный дом <strong>SOHAIB OUD</strong> основан в <strong>2008 году</strong> из искренней страсти к искусству натурального уда, королевской амбры, белого мускуса и высокой восточно-французской парфюмерии.</p>
+                   <p style="margin-top: 12px;">Наш портфель насчитывает более 500 уникальных позиций: от редкой древесины агарового дерева, масел Dehn Al Oud и бахура до эксклюзивных нишевых экстрактов. Бутики и представительства Дома открыты в Египте (Каир, Новый Каир, Эль-Мансура), ОАЭ (Дубай) и Малайзии.</p>
+                   <p style="margin-top: 12px;">Официальный сайт: <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">sohaiboud.com</a></p>`
+          },
+          en: {
+            tag: "Our Heritage • Since 2008",
+            title: "Philosophy of SOHAIB OUD",
+            body: `<p>Founded in <strong>2008</strong>, <strong>SOHAIB OUD (صهيب للعود والعنبر والعطور)</strong> was born from a deep passion for authentic raw agarwood, royal amber, pure musks, and fine Oriental-French perfumery.</p>
+                   <p style="margin-top: 12px;">With a portfolio of over 500 luxury aromatic creations—including aged Dehn Al Oud oils, traditional incense (Bakhoor), and niche perfume extracts—Sohaib Oud serves connoisseurs across Egypt, the UAE, and Malaysia.</p>
+                   <p style="margin-top: 12px;">Official Website: <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">sohaiboud.com</a></p>`
+          },
+          ar: {
+            tag: "تراث الدار • منذ ٢٠٠٨",
+            title: "فلسفة دار صهيب للعود والعنبر والعطور",
+            body: `<p>وُلدت علامة <strong>صهيب للعود والعنبر والعطور (SOHAIB OUD)</strong> في عام <strong>٢٠٠٨</strong> انطلاقاً من شغف حقيقي بعالم العطور الشرقية الأصيلة والعود الطبيعي الفاخر.</p>
+                   <p style="margin-top: 12px;">بدأت رحلتنا بالعود الخام ودهن العود الملكي، وتطورت لتشمل أكثر من ٥٠٠ منتج فاخر من العنبر الصافي، المسك، البخور، والعطور المزجية والفرنسية ذات الثبات الاستثنائي، مع حضور مميز في مصر والإمارات العربية المتحدة وماليزيا.</p>
+                   <p style="margin-top: 12px;">الموقع الرسمي: <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">sohaiboud.com</a></p>`
+          }
         },
         delivery: {
-          ru: { tag: "Сервис", title: "Доставка и примерка ароматов", body: "<p>• Экспресс-доставка с консьержем в день заказа.<br>• К каждому флакону прилагается пробник 2 мл, чтобы вы могли разносить аромат на коже до вскрытия основной коробки.</p>" },
-          en: { tag: "Concierge Service", title: "Shipping & Try-Before-You-Open", body: "<p>• Express courier delivery worldwide.<br>• Every full-size flacon includes a complimentary 2 ml sample vial so you can experience the scent on your skin before unsealing the main box.</p>" },
-          ar: { tag: "خدمة الكونسيرج", title: "الشحن الفاخر وتجربة العطر", body: "<p>• توصيل سريع ومجاني في عبوة هدايا فاخرة مختومة بالشمع.<br>• يُرفق مع كل زجاجة عينة مجانية بحجم ٢ مل لتجربة العطر على بشرتك قبل فتح العلبة الرئيسية.</p>" }
+          ru: {
+            tag: "Сервис SOHAIB OUD",
+            title: "Доставка и заказ",
+            body: `<p>• Быстрая курьерская доставка по всему Египту, ОАЭ и международная отправка заказов с официального сайта <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold);">sohaiboud.com</a>.<br>• Прямая консультация и быстрый заказ через WhatsApp: <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a>.</p>`
+          },
+          en: {
+            tag: "Concierge Service",
+            title: "Shipping & Online Ordering",
+            body: `<p>• Fast courier delivery across Egypt, the UAE, and international shipping via <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold);">sohaiboud.com</a>.<br>• Direct fragrance consultation and instant ordering via WhatsApp: <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a>.</p>`
+          },
+          ar: {
+            tag: "خدمة العملاء والشحن",
+            title: "الشحن والتوصيل السريع",
+            body: `<p>• شحن وتوصيل سريع لكافة المحافظات والدول عبر متجرنا الرسمي <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold);">sohaiboud.com</a>.<br>• للطلب المباشر والاستفسار عبر واتساب: <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a>.</p>`
+          }
         },
         samples: {
-          ru: { tag: "Знакомство", title: "Discovery Set (6 × 3 мл)", body: "<p>Фирменная шкатулка со всеми 6 ароматами коллекции AURA NOIR в формате спреев по 3 мл. Стоимость набора полностью засчитывается как скидка при покупке полноразмерного флакона.</p>" },
-          en: { tag: "Discovery", title: "Discovery Coffret (6 × 3 ml)", body: "<p>A luxury lacquered box featuring all 6 creations of AURA NOIR in 3 ml atomizer vials. The price of the Discovery Set is redeemable toward your next full-bottle purchase.</p>" },
-          ar: { tag: "مجموعة الاستكشاف", title: "صندوق العينات الفاخر (٦ × ٣ مل)", body: "<p>علبة فاخرة تضم جميع عطور مجموعة أورا نوار الستة بحجم ٣ مل لكل عطر، مع قسيمة خصم بقيمة المجموعة عند شرائك لأي زجاجة بالحجم الكامل.</p>" }
+          ru: {
+            tag: "Знакомство",
+            title: "Discovery Set SOHAIB OUD (6 × 3 мл)",
+            body: "<p>Фирменная шкатулка со знаковыми ароматами и удовыми композициями коллекции SOHAIB OUD в формате спреев по 3 мл. Стоимость набора полностью засчитывается как скидка при покупке полноразмерного флакона.</p>"
+          },
+          en: {
+            tag: "Discovery",
+            title: "SOHAIB OUD Discovery Coffret (6 × 3 ml)",
+            body: "<p>A luxury lacquered box featuring 6 signature creations of SOHAIB OUD in 3 ml atomizer vials. The price of the Discovery Set is redeemable toward your next full-bottle purchase.</p>"
+          },
+          ar: {
+            tag: "مجموعة الاستكشاف",
+            title: "صندوق عينات صهيب الفاخر (٦ × ٣ مل)",
+            body: "<p>علبة فاخرة تضم ٦ من أشهر عطور ومخلطات دار صهيب للعود والعنبر بحجم ٣ مل لكل عطر، لتجربة الروائح على بشرتك بكل فخامة.</p>"
+          }
         },
         contacts: {
-          ru: { tag: "Бутики", title: "Флагманские пространства", body: "<p>• <strong>Москва:</strong> ул. Малая Бронная, 24<br>• <strong>Париж:</strong> 218 Rue Saint-Honoré<br>• <strong>Дубай:</strong> The Dubai Mall, Fashion Avenue</p>" },
-          en: { tag: "Boutiques", title: "Flagship Spaces", body: "<p>• <strong>Paris:</strong> 218 Rue Saint-Honoré<br>• <strong>Dubai:</strong> The Dubai Mall, Fashion Avenue<br>• <strong>Moscow:</strong> Malaya Bronnaya, 24</p>" },
-          ar: { tag: "الفروع والبوتيكات", title: "بوتيكات أورا نوار", body: "<p>• <strong>دبي:</strong> دبي مول — فاشن أفنيو<br>• <strong>الرياض:</strong> سنتريا مول<br>• <strong>باريس:</strong> شارع سانت أونوريه ٢١٨</p>" }
+          ru: {
+            tag: "Официальные бутики и Контакты",
+            title: "Филиалы SOHAIB OUD",
+            body: `<p>• <strong>Каир (Наср-Сити):</strong> 76 El Gamea St., El Swesry B, 10th District • и ул. Эль-Така (El-Taka St.), 8th District, Nasr City<br>
+                   • <strong>Новый Каир (5th Settlement):</strong> ТЦ Seven Stars Mall, 1-й район, участок 67/68<br>
+                   • <strong>Эль-Мансура:</strong> ул. Эль-Гомхурия, 68 (напротив стомат. факультета) • и ул. Суэцкого канала, башня Аль-Зухур<br>
+                   • <strong>Международное присутствие:</strong> ОАЭ (Дубай) • Малайзия<br>
+                   • <strong>Телефон / WhatsApp:</strong> <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a> / <span style="color: var(--gold-light);">050 220 0404</span><br>
+                   • <strong>Официальный сайт:</strong> <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">https://sohaiboud.com</a><br>
+                   • <strong>Геолокация Google Maps:</strong> <a href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic" target="_blank" style="color: var(--gold); text-decoration: underline;">Открыть на Google Картах</a></p>`
+          },
+          en: {
+            tag: "Official Boutiques & Contacts",
+            title: "SOHAIB OUD Branches",
+            body: `<p>• <strong>Cairo (Nasr City):</strong> 76 El Gamea St., El Swesry B, 10th District • & El-Taka St., 8th District, Nasr City<br>
+                   • <strong>New Cairo (5th Settlement):</strong> Seven Stars Mall, 1st District, Plot 67/68<br>
+                   • <strong>Mansoura:</strong> 68 El-Gomhoria St. (in front of Faculty of Dentistry) • & Suez Canal St., Al-Zohour Tower<br>
+                   • <strong>International Presence:</strong> UAE (Dubai) • Malaysia<br>
+                   • <strong>Phone / WhatsApp:</strong> <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a> / <span style="color: var(--gold-light);">050 220 0404</span><br>
+                   • <strong>Official Website:</strong> <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">https://sohaiboud.com</a><br>
+                   • <strong>Google Maps Location:</strong> <a href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic" target="_blank" style="color: var(--gold); text-decoration: underline;">Open in Google Maps</a></p>`
+          },
+          ar: {
+            tag: "الفروع الرسمية والتواصل",
+            title: "فروع صهيب للعود والعنبر والعطور",
+            body: `<p>• <strong>القاهرة (مدينة نصر):</strong> ٧٦ شارع الجامع، المشروع السويسري (ب)، الحي العاشر • وشارع الطاقة بجوار كبابجي فرحات، الحي الثامن<br>
+                   • <strong>القاهرة الجديدة (التجمع الخامس):</strong> داخل سفن ستارز مول (Seven Stars Mall)، الحي الأول، قطعة ٦٧/٦٨<br>
+                   • <strong>المنصورة:</strong> ٦٨ شارع الجمهورية (أمام كلية طب الأسنان) • وشارع قناة السويس، برج الزهور (بجوار مستشفى الخير)<br>
+                   • <strong>التواجد الإقليمي:</strong> الإمارات العربية المتحدة (دبي) • ماليزيا<br>
+                   • <strong>الهاتف والواتساب:</strong> <a href="https://wa.me/201112244334" target="_blank" style="color: var(--gold);">+20 111 224 4334</a> / <span style="color: var(--gold-light);">0502200404</span><br>
+                   • <strong>الموقع الإلكتروني الرسمي:</strong> <a href="https://sohaiboud.com" target="_blank" style="color: var(--gold); text-decoration: underline;">https://sohaiboud.com</a><br>
+                   • <strong>الموقع على الخريطة:</strong> <a href="https://maps.app.goo.gl/9A3wqLJUUzLWr5238?g_st=ic" target="_blank" style="color: var(--gold); text-decoration: underline;">افتح في خرائط جوجل (Google Maps)</a></p>`
+          }
         }
       };
 
