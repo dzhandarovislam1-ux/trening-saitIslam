@@ -1977,6 +1977,9 @@
       <span>PROTECTED DEMO • ЗАЩИЩЁННАЯ ДЕМО-ВЕРСИЯ</span>
     </div>
 
+    <!-- FULL SOHAIB OUD CATALOG DATA (250 FRAGRANCES FROM SOHAIBOUD.COM) -->
+    <script src="products-data.js"></script>
+
     <!-- JAVASCRIPT MULTILINGUAL LOGIC -->
     <script>
       // CURRENT LANGUAGE STATE ('ru' | 'en' | 'ar')
@@ -2356,267 +2359,13 @@
         }
       ];
 
-      // PERFUMES DATABASE (MULTILINGUAL)
-      const PERFUMES = [
-        {
-          id: 1,
-          name: "Oud Mystique № 07",
-          familyKey: "woody",
-          basePriceRub: 24500,
-          image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Extrait de Parfum • Унисекс",
-            en: "Extrait de Parfum • Unisex",
-            ar: "إكستريت دي بارفان • للجنسين"
-          },
-          badge: { ru: "Бестселлер", en: "Bestseller", ar: "الأكثر مبيعاً" },
-          description: {
-            ru: "Глубокий, гипнотический и благородный аромат с королевским камбоджийским удом, окутанным тёплой дымкой ладана, кожи и пряного шафрана.",
-            en: "A deep, hypnotic and noble creation featuring royal Cambodian oud wrapped in warm smoky frankincense, leather, and spicy saffron.",
-            ar: "عطر عميق وساحر يجمع بين العود الكمبودي الملكي ونفحات البخور الدافئة والجلد الفاخر مع الزعفران الإيراني."
-          },
-          topNotes: {
-            ru: "Иранский шафран, Розовый перец, Бергамот",
-            en: "Iranian Saffron, Pink Pepper, Bergamot",
-            ar: "زعفران إيراني، فلفل وردي، برغموت"
-          },
-          heartNotes: {
-            ru: "Болгарская роза, Ладан, Пачули",
-            en: "Bulgarian Rose, Frankincense, Patchouli",
-            ar: "ورد بلغاري، لبان حوجري، باتشولي"
-          },
-          baseNotes: {
-            ru: "Камбоджийский уд, Кожа, Сандал, Серая амбра",
-            en: "Cambodian Oud, Leather, Sandalwood, Ambergris",
-            ar: "عود كمبودي معتق، جلد فاخر، خشب الصندل، عنبر"
-          },
-          longevity: {
-            ru: "Сверхстойкий (до 48 часов)",
-            en: "Ultra Long-lasting (up to 48h)",
-            ar: "ثبات فائق (حتى ٤٨ ساعة)"
-          },
-          sillage: {
-            ru: "Объёмный, обволакивающий",
-            en: "Rich & Enveloping",
-            ar: "فوحان قوي وآسر"
-          }
-        },
-        {
-          id: 2,
-          name: "Ambre Impérial",
-          familyKey: "oriental",
-          basePriceRub: 19800,
-          image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Eau de Parfum • Унисекс",
-            en: "Eau de Parfum • Unisex",
-            ar: "أو دي بارفان • للجنسين"
-          },
-          badge: { ru: "Новинка", en: "New Arrival", ar: "إصدار جديد" },
-          description: {
-            ru: "Чувственный золотой эликсир. Пьянящее сочетание мадагаскарской черной ванили, бобов тонка, корицы и смолистой амбры для прохладных вечеров.",
-            en: "A sensual golden elixir blending Madagascar black vanilla, tonka bean, Ceylon cinnamon, and resinous amber for unforgettable evenings.",
-            ar: "إكسير ذهبي دافئ يمزج بين فانيليا مدغشقر السوداء وحبوب التونكا والقرفة السيلانية مع العنبر الملكي."
-          },
-          topNotes: {
-            ru: "Цейлонская корица, Кардамон, Пряный аккорд",
-            en: "Ceylon Cinnamon, Cardamom, Warm Spices",
-            ar: "قرفة سيلانية، هيل فاخر، توابل دافئة"
-          },
-          heartNotes: {
-            ru: "Бобы тонка, Мирра, Финики и сухофрукты",
-            en: "Tonka Bean, Myrrh, Medjool Dates",
-            ar: "حبوب التونكا، المر، التمر الفاخر والفواكه المجففة"
-          },
-          baseNotes: {
-            ru: "Золотая амбра, Мадагаскарская ваниль, Бензоин",
-            en: "Golden Amber, Madagascar Vanilla, Benzoin",
-            ar: "عنبر ذهبي، فانيليا مدغشقر، الجاوي"
-          },
-          longevity: {
-            ru: "Высокая (12–16 часов)",
-            en: "High (12–16 hours)",
-            ar: "ثبات عالٍ (١٢–١٦ ساعة)"
-          },
-          sillage: {
-            ru: "Густой, бархатный",
-            en: "Velvety & Warm",
-            ar: "مخملي وجذاب"
-          }
-        },
-        {
-          id: 3,
-          name: "Velvet Rose & Iris",
-          familyKey: "floral",
-          basePriceRub: 22000,
-          image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Extrait de Parfum • Женский",
-            en: "Extrait de Parfum • Feminine",
-            ar: "إكستريت دي بارفان • نسائي"
-          },
-          badge: { ru: "Лимитированный", en: "Limited Edition", ar: "إصدار محدود" },
-          description: {
-            ru: "Утончённый букет бархатных лепестков грасской розы и пудрового флорентийского ириса с деликатной сладостью белого мускуса и спелой малины.",
-            en: "An exquisite bouquet of velvety Grasse rose petals and powdery Florentine iris caressed by white musk and ripe raspberry.",
-            ar: "باقة راقية من بتلات الورد الدمشقي والسوسن الفلورنسي البودري مع لمسة رقيقة من المسك الأبيض والتوت."
-          },
-          topNotes: {
-            ru: "Личи, Малина, Розовый грейпфрут",
-            en: "Lychee, Raspberry, Pink Grapefruit",
-            ar: "ليتشي، توت أحمر، جريب فروت وردي"
-          },
-          heartNotes: {
-            ru: "Дамасская роза, Пудра ириса, Пион",
-            en: "Damask Rose, Iris Pallida, Peony",
-            ar: "ورد دمشقي، بودرة السوسن، الفاوانيا"
-          },
-          baseNotes: {
-            ru: "Белый мускус, Кашмеран, Ванильная орхидея",
-            en: "White Musk, Cashmeran, Vanilla Orchid",
-            ar: "مسك أبيض صافي، أخشاب الكشمير، أوركيد الفانيليا"
-          },
-          longevity: {
-            ru: "Высокая (14 часов)",
-            en: "High (14 hours)",
-            ar: "ثبات عالٍ (١٤ ساعة)"
-          },
-          sillage: {
-            ru: "Утончённый, комплиментарный",
-            en: "Elegant & Compliment-getter",
-            ar: "ناعم وفواح بأناقة"
-          }
-        },
-        {
-          id: 4,
-          name: "Neroli & Sel Marin",
-          familyKey: "fresh",
-          basePriceRub: 17500,
-          image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Eau de Parfum • Унисекс",
-            en: "Eau de Parfum • Unisex",
-            ar: "أو دي بارفان • للجنسين"
-          },
-          badge: { ru: "Выбор сезона", en: "Resort Choice", ar: "انتعاش الصيف" },
-          description: {
-            ru: "Свежий средиземноморский бриз Лазурного берега. Искрящийся бергамот, цветы горького апельсина и кристаллы морской соли на кедровой базе.",
-            en: "A crisp Mediterranean breeze from the Côte d'Azur. Sparkling bergamot, bitter orange blossom, and sea salt crystals over white cedar.",
-            ar: "نسيم البحر الأبيض المتوسط المنعش مع البرغموت المتألق وزهر البرتقال وبلورات ملح البحر على قاعدة خشب الأرز."
-          },
-          topNotes: {
-            ru: "Сицилийский лимон, Калабрийский бергамот, Мандарин",
-            en: "Sicilian Lemon, Calabrian Bergamot, Mandarin",
-            ar: "ليمون صقلي، برغموت إيطالي، يوسفي"
-          },
-          heartNotes: {
-            ru: "Цветы нероли, Морская соль, Лист инжира",
-            en: "Neroli Blossom, Sea Salt, Fig Leaf",
-            ar: "زهر النيرولي، ملح البحر، أوراق التين"
-          },
-          baseNotes: {
-            ru: "Белый кедр, Дубовый мох, Амброксан",
-            en: "White Cedar, Oakmoss, Ambroxan",
-            ar: "خشب الأرز الأبيض، طحلب البلوط، أمبروكسان"
-          },
-          longevity: {
-            ru: "Средняя (8–10 часов)",
-            en: "Moderate-High (8–10 hours)",
-            ar: "جيد جداً (٨–١٠ ساعات)"
-          },
-          sillage: {
-            ru: "Свежий, воздушный",
-            en: "Crisp & Airy",
-            ar: "منعش وحيوي"
-          }
-        },
-        {
-          id: 5,
-          name: "Santal Noir Absolu",
-          familyKey: "woody",
-          basePriceRub: 23500,
-          image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Extrait de Parfum • Унисекс",
-            en: "Extrait de Parfum • Unisex",
-            ar: "إكستريت دي بارفان • للجنسين"
-          },
-          badge: { ru: "Топ продаж", en: "Top Rated", ar: "الأعلى تقييماً" },
-          description: {
-            ru: "Медитативный сливочный сандал из Майсура в обрамлении пряного кардамона, фиалкового листа и мягкой замши.",
-            en: "Meditative creamy Mysore sandalwood framed by spicy cardamom, violet leaf, and supple suede leather.",
-            ar: "خشب الصندل الهندي الكريمي الفاخر محاطاً بنفحات الهيل الأخضر وأوراق البنفسج والجلد المدبوغ الناعم."
-          },
-          topNotes: {
-            ru: "Зелёный кардамон, Лист фиалки, Кипарис",
-            en: "Green Cardamom, Violet Leaf, Cypress",
-            ar: "هيل أخضر، أوراق البنفسج، السرو"
-          },
-          heartNotes: {
-            ru: "Индийский сандал, Папирус, Ирис",
-            en: "Mysore Sandalwood, Papyrus, Orris",
-            ar: "خشب الصندل الهندي، ورق البردي، السوسن"
-          },
-          baseNotes: {
-            ru: "Мягкая замша, Вирджинский кедр, Мускус",
-            en: "Soft Suede, Virginia Cedar, Skin Musk",
-            ar: "جلد الغزال الناعم، خشب الأرز، مسك"
-          },
-          longevity: {
-            ru: "Высокая (18 часов)",
-            en: "High (18 hours)",
-            ar: "ثبات قوي (١٨ ساعة)"
-          },
-          sillage: {
-            ru: "Статусный, благородный",
-            en: "Sophisticated & Noble",
-            ar: "فخم ووقور"
-          }
-        },
-        {
-          id: 6,
-          name: "Tabac & Cherry Elixir",
-          familyKey: "oriental",
-          basePriceRub: 25900,
-          image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=900&q=80",
-          collection: {
-            ru: "Extrait de Parfum • Унисекс",
-            en: "Extrait de Parfum • Unisex",
-            ar: "إكستريت دي بارفان • للجنسين"
-          },
-          badge: { ru: "Эксклюзив", en: "Exclusive", ar: "حصري" },
-          description: {
-            ru: "Дерзкая и соблазнительная композиция: спелая чёрная вишня, горький миндаль и благородный лист табака с ванилью.",
-            en: "A bold and magnetic creation: ripe black cherry, bitter almond, and noble tobacco leaf infused with rich vanilla.",
-            ar: "تركيبة جريئة وساحرة تجمع بين الكرز الأسود الناضج واللوز المر مع أوراق التبغ الفاخرة والفانيليا الدافئة."
-          },
-          topNotes: {
-            ru: "Чёрная вишня, Горький миндаль, Шафран",
-            en: "Black Cherry, Bitter Almond, Saffron",
-            ar: "كرز أسود، لوز مر، زعفران"
-          },
-          heartNotes: {
-            ru: "Лист табака, Турецкая роза, Гвоздика",
-            en: "Tobacco Leaf, Turkish Rose, Clove",
-            ar: "أوراق التبغ الفاخر، ورد تركي، قرنفل"
-          },
-          baseNotes: {
-            ru: "Перуанский бальзам, Бобы тонка, Ветивер",
-            en: "Peru Balsam, Tonka Bean, Vetiver",
-            ar: "بلسم بيرو، حبوب التونكا، نجيل الهند"
-          },
-          longevity: {
-            ru: "Сверхстойкий (24+ часа)",
-            en: "Ultra Long-lasting (24+ hours)",
-            ar: "ثبات فائق (أكثر من ٢٤ ساعة)"
-          },
-          sillage: {
-            ru: "Яркий, магнетический",
-            en: "Bold & Magnetic",
-            ar: "جذاب ولا يُقاوم"
-          }
-        }
-      ];
+      // PERFUMES DATABASE (250 REAL FRAGRANCES LOADED FROM SOHAIBOUD.COM)
+      const PERFUMES = window.SOHAIB_PRODUCTS || [];
+
+      function getPerfumeTitle(p) {
+        if (p.nameI18n && p.nameI18n[currentLang]) return p.nameI18n[currentLang];
+        return p.name;
+      }
 
       // JOURNAL ARTICLES (MULTILINGUAL)
       const ARTICLES = [
@@ -2686,18 +2435,19 @@
       let activeFilter = "all";
       let searchQuery = "";
       let sortOrder = "popular";
+      let visibleLimit = 24;
       let cart = []; // { id, volKey, mult, qty }
       let favorites = new Set();
 
       // FORMAT CURRENCY PER LANGUAGE
       function formatPrice(rubAmount) {
         if (currentLang === "en") {
-          const usd = Math.round(rubAmount / 90);
+          const usd = Math.max(1, Math.round(rubAmount / 90));
           return "$" + usd.toLocaleString("en-US");
         }
         if (currentLang === "ar") {
-          const sar = Math.round(rubAmount / 24);
-          return sar.toLocaleString("ar-SA") + " ر.س";
+          const egp = Math.round(rubAmount / 2);
+          return egp.toLocaleString("ar-EG") + " ج.م";
         }
         return rubAmount.toLocaleString("ru-RU") + " ₽";
       }
@@ -2873,10 +2623,12 @@
       // RENDER FILTER BUTTONS
       function renderFilterButtons() {
         const container = document.getElementById("categoryFilters");
-        const allBtn = `<button class="filter-btn ${activeFilter === "all" ? "active" : ""}" data-filter="all">${I18N[currentLang].filterAll}</button>`;
-        const famBtns = FAMILIES_DATA.map(
-          (f) => `<button class="filter-btn ${activeFilter === f.key ? "active" : ""}" data-filter="${f.key}">${f.filterLabel[currentLang]}</button>`
-        ).join("");
+        const totalCount = PERFUMES.length;
+        const allBtn = `<button class="filter-btn ${activeFilter === "all" ? "active" : ""}" data-filter="all">${I18N[currentLang].filterAll} (${totalCount})</button>`;
+        const famBtns = FAMILIES_DATA.map((f) => {
+          const cnt = PERFUMES.filter((p) => p.familyKey === f.key).length;
+          return `<button class="filter-btn ${activeFilter === f.key ? "active" : ""}" data-filter="${f.key}">${f.filterLabel[currentLang]} (${cnt})</button>`;
+        }).join("");
         container.innerHTML = allBtn + famBtns;
       }
 
@@ -2888,8 +2640,15 @@
         let list = PERFUMES.filter((p) => {
           const matchesCat = activeFilter === "all" || p.familyKey === activeFilter;
           const q = searchQuery.toLowerCase();
+          if (!q) return matchesCat;
           const matchesSearch =
             p.name.toLowerCase().includes(q) ||
+            (p.handle && p.handle.toLowerCase().includes(q)) ||
+            (p.nameI18n && (
+              p.nameI18n.ru.toLowerCase().includes(q) ||
+              p.nameI18n.en.toLowerCase().includes(q) ||
+              p.nameI18n.ar.toLowerCase().includes(q)
+            )) ||
             p.topNotes[currentLang].toLowerCase().includes(q) ||
             p.heartNotes[currentLang].toLowerCase().includes(q) ||
             p.baseNotes[currentLang].toLowerCase().includes(q) ||
@@ -2913,48 +2672,94 @@
           return;
         }
 
-        container.innerHTML = list
-          .map((p, idx) => {
-            const isFav = favorites.has(p.id);
-            const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey);
-            return `
-            <article class="product-card reveal" style="transition-delay: ${(idx % 3) * 0.08}s;">
-              <div class="product-img-wrap" data-open-id="${p.id}">
-                <div class="product-badges">
-                  <span class="tag-badge">${p.badge[currentLang]}</span>
-                </div>
-                <button class="fav-btn ${isFav ? "active" : ""}" data-fav-id="${p.id}">
-                  <i class="${isFav ? "fa-solid" : "fa-regular"} fa-heart"></i>
-                </button>
-                <img src="${p.image}" alt="${p.name}" />
-              </div>
+        const shownList = list.slice(0, visibleLimit);
+        const hasMore = list.length > visibleLimit;
+        const loadMoreLabel =
+          currentLang === "ru"
+            ? `Показать ещё (+24 из ${list.length})`
+            : currentLang === "en"
+            ? `Load More (+24 of ${list.length})`
+            : `عرض المزيد (+٢٤ من أصل ${list.length})`;
+        const showAllLabel =
+          currentLang === "ru"
+            ? `Показать все ароматы (${list.length})`
+            : currentLang === "en"
+            ? `Show All Fragrances (${list.length})`
+            : `عرض جميع العطور (${list.length})`;
 
-              <div class="product-body">
-                <div class="product-brand">${p.collection[currentLang]} • ${famObj.filterLabel[currentLang]}</div>
-                <h3 class="product-title" data-open-id="${p.id}">${p.name}</h3>
-                <p class="product-notes-preview">
-                  <strong>${t.notesLabel}</strong> ${p.topNotes[currentLang]}, ${p.heartNotes[currentLang]}
-                </p>
-
-                <div class="product-footer">
-                  <div class="product-price">
-                    ${formatPrice(p.basePriceRub)}
-                    <span>${t.per50ml}</span>
+        container.innerHTML =
+          shownList
+            .map((p, idx) => {
+              const isFav = favorites.has(p.id);
+              const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey) || FAMILIES_DATA[0];
+              const displayTitle = getPerfumeTitle(p);
+              return `
+              <article class="product-card reveal" style="transition-delay: ${(idx % 3) * 0.05}s;">
+                <div class="product-img-wrap" data-open-id="${p.id}">
+                  <div class="product-badges">
+                    <span class="tag-badge">${p.badge[currentLang]}</span>
                   </div>
-                  <div class="product-actions">
-                    <button class="btn-icon-only" data-open-id="${p.id}">
-                      <i class="fa-regular fa-eye"></i>
-                    </button>
-                    <button class="btn-buy" data-buy-id="${p.id}">
-                      <i class="fa-solid fa-plus"></i> ${t.addToCartBtn}
-                    </button>
+                  <button class="fav-btn ${isFav ? "active" : ""}" data-fav-id="${p.id}">
+                    <i class="${isFav ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                  </button>
+                  <img src="${p.image}" alt="${displayTitle}" loading="lazy" />
+                </div>
+
+                <div class="product-body">
+                  <div class="product-brand">${p.collection[currentLang]} • ${famObj.filterLabel[currentLang]}</div>
+                  <h3 class="product-title" data-open-id="${p.id}">${displayTitle}</h3>
+                  <p class="product-notes-preview">
+                    <strong>${t.notesLabel}</strong> ${p.topNotes[currentLang]}, ${p.heartNotes[currentLang]}
+                  </p>
+
+                  <div class="product-footer">
+                    <div class="product-price">
+                      ${formatPrice(p.basePriceRub)}
+                      <span>${t.per50ml}</span>
+                    </div>
+                    <div class="product-actions">
+                      <button class="btn-icon-only" data-open-id="${p.id}">
+                        <i class="fa-regular fa-eye"></i>
+                      </button>
+                      <button class="btn-buy" data-buy-id="${p.id}">
+                        <i class="fa-solid fa-plus"></i> ${t.addToCartBtn}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          `;
-          })
-          .join("");
+              </article>
+            `;
+            })
+            .join("") +
+          (hasMore
+            ? `
+            <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 20px;">
+              <button class="btn btn-gold" id="loadMorePerfumesBtn">
+                <i class="fa-solid fa-plus"></i> ${loadMoreLabel}
+              </button>
+              <button class="btn btn-outline" id="showAllPerfumesBtn">
+                <i class="fa-solid fa-layer-group"></i> ${showAllLabel}
+              </button>
+            </div>
+          `
+            : "");
+
+        const loadMoreBtn = document.getElementById("loadMorePerfumesBtn");
+        if (loadMoreBtn) {
+          loadMoreBtn.addEventListener("click", () => {
+            visibleLimit += 24;
+            renderCatalog();
+          });
+        }
+
+        const showAllBtn = document.getElementById("showAllPerfumesBtn");
+        if (showAllBtn) {
+          showAllBtn.addEventListener("click", () => {
+            visibleLimit = list.length;
+            renderCatalog();
+          });
+        }
+
         observeRevealElements();
       }
 
@@ -2986,7 +2791,8 @@
         const p = PERFUMES.find((item) => item.id === id);
         if (!p) return;
         const t = I18N[currentLang];
-        const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey);
+        const famObj = FAMILIES_DATA.find((f) => f.key === p.familyKey) || FAMILIES_DATA[0];
+        const displayTitle = getPerfumeTitle(p);
 
         let selectedVolKey = "vol50";
         let selectedMult = 1;
@@ -2995,11 +2801,11 @@
           const currentRubPrice = Math.round(p.basePriceRub * selectedMult);
           productModalContent.innerHTML = `
             <div>
-              <img src="${p.image}" alt="${p.name}" class="product-modal-img" />
+              <img src="${p.image}" alt="${displayTitle}" class="product-modal-img" />
             </div>
             <div class="product-modal-info">
               <span class="section-subtitle">${p.collection[currentLang]} • ${famObj.filterLabel[currentLang]}</span>
-              <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 10px;">${p.name}</h2>
+              <h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 10px;">${displayTitle}</h2>
               <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">${p.description[currentLang]}</p>
 
               <div class="pyramid-box">
@@ -3040,7 +2846,7 @@
                 </button>
               </div>
 
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: auto;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; flex-wrap: wrap;">
                 <div>
                   <span style="font-size: 11px; color: var(--text-muted); display: block;">${t.priceLabel}</span>
                   <strong style="font-family: var(--font-serif); font-size: 32px; color: var(--gold);">${formatPrice(currentRubPrice)}</strong>
@@ -3048,6 +2854,13 @@
                 <button class="btn btn-gold" id="modalAddToCartBtn" style="flex: 1;">
                   <i class="fa-solid fa-bag-shopping"></i> ${t.addToCartBtn}
                 </button>
+                ${
+                  p.url
+                    ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0 16px;" title="sohaiboud.com">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      </a>`
+                    : ""
+                }
               </div>
             </div>
           `;
@@ -3082,18 +2895,19 @@
           cart.push({ id, volKey, mult, qty: 1 });
         }
         updateBadges();
-        showToast(`«${p.name}» (${t[volKey]}) — ${t.toastAddedCart}`);
+        showToast(`«${getPerfumeTitle(p)}» (${t[volKey]}) — ${t.toastAddedCart}`);
       }
 
       function toggleFavorite(id) {
         const p = PERFUMES.find((item) => item.id === id);
+        if (!p) return;
         const t = I18N[currentLang];
         if (favorites.has(id)) {
           favorites.delete(id);
-          showToast(`«${p.name}» — ${t.toastRemovedFav}`);
+          showToast(`«${getPerfumeTitle(p)}» — ${t.toastRemovedFav}`);
         } else {
           favorites.add(id);
-          showToast(`«${p.name}» — ${t.toastAddedFav}`);
+          showToast(`«${getPerfumeTitle(p)}» — ${t.toastAddedFav}`);
         }
         updateBadges();
         renderCatalog();
@@ -3130,11 +2944,12 @@
               const unitRub = Math.round(p.basePriceRub * item.mult);
               const lineRub = unitRub * item.qty;
               totalRub += lineRub;
+              const pTitle = getPerfumeTitle(p);
               return `
                 <div class="cart-item">
-                  <img src="${p.image}" alt="${p.name}" />
+                  <img src="${p.image}" alt="${pTitle}" />
                   <div class="cart-item-info">
-                    <div class="cart-item-title">${p.name}</div>
+                    <div class="cart-item-title">${pTitle}</div>
                     <div class="cart-item-meta">${t[item.volKey]} • ${formatPrice(unitRub)}</div>
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                       <div class="qty-controls">
@@ -3196,18 +3011,21 @@
           const favItems = PERFUMES.filter((p) => favorites.has(p.id));
           drawerBody.innerHTML = favItems
             .map(
-              (p) => `
+              (p) => {
+                const pTitle = getPerfumeTitle(p);
+                return `
               <div class="cart-item">
-                <img src="${p.image}" alt="${p.name}" />
+                <img src="${p.image}" alt="${pTitle}" />
                 <div class="cart-item-info">
-                  <div class="cart-item-title">${p.name}</div>
+                  <div class="cart-item-title">${pTitle}</div>
                   <div class="cart-item-meta">${formatPrice(p.basePriceRub)}</div>
                   <button class="btn-buy" data-fav-buy="${p.id}" style="height: 32px; font-size: 10px;">
                     ${t.addToCartBtn}
                   </button>
                 </div>
               </div>
-            `
+            `;
+              }
             )
             .join("");
 
@@ -3340,12 +3158,14 @@
               });
             });
           } else {
-            const match = PERFUMES.find((p) => p.familyKey === chosenFam) || PERFUMES[0];
+            const matches = PERFUMES.filter((p) => p.familyKey === chosenFam);
+            const match = matches[Math.floor(Math.random() * matches.length)] || PERFUMES[0];
+            const matchTitle = getPerfumeTitle(match);
             quizModalBody.innerHTML = `
               <span class="section-subtitle">${t.quizResultSub}</span>
-              <h3 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 18px;">${t.quizResultPrefix} ${match.name}</h3>
+              <h3 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 18px;">${t.quizResultPrefix} ${matchTitle}</h3>
               <div style="display: grid; grid-template-columns: 160px 1fr; gap: 22px; align-items: center; background: rgba(255,255,255,0.02); padding: 18px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 24px;">
-                <img src="${match.image}" alt="${match.name}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;" />
+                <img src="${match.image}" alt="${matchTitle}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;" />
                 <div>
                   <div style="color: var(--gold); font-size: 12px; text-transform: uppercase;">${match.collection[currentLang]}</div>
                   <p style="font-size: 13px; color: var(--text-muted); margin: 8px 0;">${match.description[currentLang]}</p>
@@ -3422,6 +3242,7 @@
         const btn = e.target.closest(".filter-btn");
         if (!btn) return;
         activeFilter = btn.dataset.filter;
+        visibleLimit = 24;
         renderFilterButtons();
         renderCatalog();
       });
@@ -3429,6 +3250,7 @@
       // Search & Sort
       document.getElementById("searchPerfumeInput").addEventListener("input", (e) => {
         searchQuery = e.target.value.trim();
+        visibleLimit = 24;
         renderCatalog();
       });
 
