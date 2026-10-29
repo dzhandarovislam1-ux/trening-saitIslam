@@ -68,7 +68,6 @@
 
       img {
         -webkit-user-drag: none;
-        user-drag: none;
       }
 
       /* DEMO PROTECTION WATERMARK */
@@ -1800,7 +1799,6 @@
           heroDesc: "Парфюмерный дом <strong>AURA NOIR</strong> создаёт редкие композиции из натуральных абсолютов Грасса, дикого уда, амбры и редких специй. Каждый флакон — история, рассказанная без слов.",
           heroBtnCatalog: 'Смотреть коллекцию <i class="fa-solid fa-arrow-right"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Подобрать свой аромат',
-          heroBtnVideo: '<i class="fa-solid fa-play"></i> Видео-инструкция',
           statLabel1: "Концентрация масел Extrait",
           statVal2: "48 ч",
           statLabel2: "Стойкость шлейфа",
@@ -1883,7 +1881,6 @@
           heroDesc: "Perfume House <strong>AURA NOIR</strong> crafts rare compositions from natural Grasse absolutes, wild oud, amber, and precious spices. Every flacon is a story told without words.",
           heroBtnCatalog: 'Explore Collection <i class="fa-solid fa-arrow-right"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> Find Your Signature Scent',
-          heroBtnVideo: '<i class="fa-solid fa-play"></i> Watch Video Guide',
           statLabel1: "Extrait Oil Concentration",
           statVal2: "48 h",
           statLabel2: "Sillage & Longevity",
@@ -1966,7 +1963,6 @@
           heroDesc: "تبتكر دار <strong>AURA NOIR</strong> تركيبات نادرة من خلاصات غراس الطبيعية، والعود الكمبودي الفاخر، والعنبر والتوابل الثمينة. كل زجاجة تروي حكاية ساحرة بلا كلمات.",
           heroBtnCatalog: 'استكشف المجموعة <i class="fa-solid fa-arrow-left"></i>',
           heroBtnQuiz: '<i class="fa-solid fa-wand-magic-sparkles"></i> اكتشف عطرك المثالي',
-          heroBtnVideo: '<i class="fa-solid fa-play"></i> فيديو طريقة الطلب',
           statLabel1: "تركيز الزيوت العطرية النقية",
           statVal2: "٤٨ ساعة",
           statLabel2: "ثبات وفوحان استثنائي",
@@ -3236,7 +3232,7 @@
 
         // 3. Запрет горячих клавиш сохранения и просмотра кода (F12, Ctrl+S, Ctrl+U, Ctrl+Shift+I/J/C)
         document.addEventListener("keydown", (e) => {
-          const key = e.key.toLowerCase();
+          const key = (e.key || "").toLowerCase();
           const isDevTools =
             e.key === "F12" ||
             (e.ctrlKey && e.shiftKey && (key === "i" || key === "j" || key === "c" || key === "и" || key === "о" || key === "с")) ||
@@ -3245,7 +3241,6 @@
           if (isDevTools) {
             e.preventDefault();
             showToast(protectMsgs[currentLang] || protectMsgs.ru);
-            return false;
           }
         });
       }
